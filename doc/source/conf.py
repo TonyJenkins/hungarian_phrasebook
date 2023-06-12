@@ -25,6 +25,7 @@ html_theme_options = {
 }
 
 html_logo = "_images/python-powered-h-140x182.png"
+
 html_title = 'The Python Book'
 
 smartquotes = True
@@ -38,3 +39,5 @@ latex_elements = {
         \usepackage{cascadia-code}
     ''',
 }
+
+latex_logo = html_logo
