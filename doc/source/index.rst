@@ -10,7 +10,11 @@ Welcome to Python Book's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   01_introduction/index.rst
+   02_important_ideas/index.rst
+   03_getting_started/index.rst
 
+   99_colophon/index.rst
 
 Indices and tables
 ==================
