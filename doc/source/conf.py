@@ -18,6 +18,10 @@ exclude_patterns = []
 html_static_path = ['_static']
 
 html_theme = 'sphinx_book_theme'
+html_theme_options = {
+    'home_page_in_toc': True,
+}
+
 html_title = 'The Python Book'
 
 smartquotes = True
