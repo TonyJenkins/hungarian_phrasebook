@@ -28,3 +28,13 @@ html_logo = "_images/python-powered-h-140x182.png"
 html_title = 'The Python Book'
 
 smartquotes = True
+
+latex_elements = {
+    'papersize' : 'a4paper',
+    'pointsize' : '11pt',
+    'preamble': r'''
+        \usepackage{bitter}
+        \usepackage[defaultsans]{lato}
+        \usepackage{cascadia-code}
+    ''',
+}
