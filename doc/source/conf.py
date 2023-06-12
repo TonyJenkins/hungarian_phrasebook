@@ -24,6 +24,7 @@ html_theme_options = {
     'use_repository_button': True,
 }
 
+html_logo = "_images/python-powered-h-140x182.png"
 html_title = 'The Python Book'
 
 smartquotes = True
