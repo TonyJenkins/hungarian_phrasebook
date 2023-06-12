@@ -41,3 +41,4 @@ latex_elements = {
 }
 
 latex_logo = html_logo
+latex_theme = 'manual'
