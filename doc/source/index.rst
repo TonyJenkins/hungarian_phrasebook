@@ -16,9 +16,6 @@ Welcome to Python Book's documentation!
 
    99_colophon/index.rst
 
-Indices and tables
-==================
+:ref:`genindex`
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:ref:`search`

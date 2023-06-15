@@ -23,7 +23,7 @@ More often, statements are either True or False, depending on something that can
 
 It could be True as you read this, or it could be False. I have no way of knowing right now. In order to determine whether it is currently True or False, you would need to test it, maybe by checking your phone. Programming revolves around these two values. A statement is True, or it is False. Perhaps it is True that a program's user has clicked a button in the interface, and so the program better respond in some useful way.
 
-True and False are called **Boolean** values, named after `George Boole <https://en.wikipedia.org/wiki/George_Boole>`_, who in 1847 first applied mathematical ideas to logic [#]_. The word Boolean is usually written with a capital B for this reason.
+True and False are called **Boolean** values, named after `George Boole <https://en.wikipedia.org/wiki/George_Boole>`_, who in 1847 first applied mathematical ideas to logic [#bool]_. The word Boolean is usually written with a capital B for this reason.
 
 Boole also showed how True and False can be combined using what are now known as Boolean (or logic) operators. For example, if there are two statements, **and** both are True, we can agree that a combined statement is True::
 
@@ -69,7 +69,7 @@ So, when a program runs, it is first loaded into the memory. If the program requ
 
 It is, obviously, much more complicated than that, with a modern CPU having many cores to allow it to process many things at the same time. But hold on to this idea of data being stored in memory, copied to the CPU, and written back. It's important.
 
-.. rubric:: Notes
+.. rubric:: Footnotes
 
-.. [#] This is a rare case in computing of an idea being named after a person (eponymy). Bonus credit if you can find more.
+.. [#bool] This is a rare case in computing of an idea being named after a person (eponymy). Bonus credit if you can find more.
 
