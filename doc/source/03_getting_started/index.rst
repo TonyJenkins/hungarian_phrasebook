@@ -19,7 +19,7 @@ Three Programs
 
 Here are three programs. Enter them into your computer (make sure you know where they're stored!), and then run them in whatever's the most convenient way.
 
-.. index:: hello.py
+.. index:: single: Programs; hello.py - the first program
 .. literalinclude:: /../../src/03/hello.py
    :language: python
    :caption: ``hello.py``

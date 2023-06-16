@@ -16,6 +16,3 @@ Welcome to Python Book's documentation!
 
    99_colophon/index.rst
 
-:ref:`genindex`
-
-:ref:`search`
