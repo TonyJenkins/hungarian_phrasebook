@@ -24,6 +24,9 @@ html_theme_options = {
     'use_repository_button': True,
     'pygment_light_style': 'igor',
     'pygment_dark_style': 'nord',
+    'primary_sidebar_end': [
+        'indices.html',
+    ]
 }
 
 html_logo = "_images/python-powered-h-140x182.png"
