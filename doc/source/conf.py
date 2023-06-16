@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 
-project = 'Python Book'
+project = 'The Python Book'
 copyright = '2023, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.01'
@@ -26,7 +26,7 @@ html_theme_options = {
     'pygment_dark_style': 'nord',
     'primary_sidebar_end': [
         'indices.html',
-    ]
+    ],
 }
 
 html_logo = "_images/python-powered-h-140x182.png"
