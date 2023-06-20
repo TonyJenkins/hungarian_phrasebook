@@ -98,8 +98,6 @@ After this chapter you should:
 
 Now we can move on to see how a program processes and stores values. After all, that's what computers are good at, and also if you think about it, what every program does!
 
-.. rubric:: Footnotes
-
 .. [#KnR] It is said in *The C Programming Language* by Brian Kernighan and Dennis Richie, a book affectionately known as "K&R".
 .. [#Speccy] Most programmers between the ages of, say, 50 and 60 learned programming this way, hacking away at programs on the home microcomputers of the 1980s. ZX Spectrum all the way.
 .. [#copy] If you are looking at this as a web page, you will see that a handy button will appear when you hover the mouse over the program code. This allows you to copy the code, *but* you will learn more if you type it yourself.

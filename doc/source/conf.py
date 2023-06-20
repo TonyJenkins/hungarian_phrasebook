@@ -27,6 +27,7 @@ html_theme_options = {
     'primary_sidebar_end': [
         'indices.html',
     ],
+    'use_sidenotes': True,
 }
 
 html_logo = "_images/python-powered-h-140x182.png"
