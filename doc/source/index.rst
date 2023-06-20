@@ -14,5 +14,5 @@ The Python Book
    02_important_ideas/index.rst
    03_getting_started/index.rst
 
-   99_colophon/index.rst
+..   99_colophon/index.rst
 
