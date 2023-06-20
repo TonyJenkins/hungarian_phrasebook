@@ -14,5 +14,7 @@ The Python Book
     \setcounter{secnumdepth}{-1}
 
 .. toctree::
+    :caption: Endmatter:
+
     99_colophon/index.rst
 

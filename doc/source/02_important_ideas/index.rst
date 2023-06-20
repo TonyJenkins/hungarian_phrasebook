@@ -9,6 +9,11 @@ Instructions
 
 A computer program is just a set of instructions. The instructions tell [#tell]_ the computer how to carry out some task.
 
+.. sidebar:: Try It!
+
+    After reading this section, try it! Write some instructions that someone should be able to follow to carry out
+    some everyday task. Making a coffee, boiling an egg, starting a laptop and opening a Word file ...
+
 We are all used to following instructions. This might be to install some software, walk to a new location in a new town, or make a new and interesting soup. This idea is so common that most of us probably carry on without really thinking about what we're doing. In fact, in some cases we could follow some instructions without knowing what the end result is intended to be!
 
 Some sets of instructions are presented in a formalised way according to some conventions. That soup recipe, for example, will start by telling us what the recipe makes, and how much, then list the ingredients, and then present the steps to take, one at a time, in the correct order. It would be very strange to find a recipe that gave the steps before listing the ingredients. Following a recipe also assumes that we understand basic cookery terms ("mix", "fry", "stir"), probably some abbreviations ("tsp" means "teaspoon"), and that we follow it with some intelligence ("fry until brown", "add enough to thicken the soup").
