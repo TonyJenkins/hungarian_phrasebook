@@ -8,6 +8,7 @@ The Python Book
    01_introduction/index.rst
    02_important_ideas/index.rst
    03_getting_started/index.rst
+   04_values_and_data/index.rst
 
 .. raw:: latex
 

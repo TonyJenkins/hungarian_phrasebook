@@ -6,14 +6,12 @@ copyright = '2023, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.01'
 
-
 extensions = [
     'sphinx_copybutton',
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
-
 
 html_static_path = ['_static']
 
@@ -33,6 +31,8 @@ html_theme_options = {
 html_logo = "_images/python-powered-h-140x182.png"
 
 html_title = 'The Python Book'
+
+copybutton_exclude = '.linenos, .gp'
 
 smartquotes = True
 
