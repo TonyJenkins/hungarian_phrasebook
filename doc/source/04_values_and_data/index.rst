@@ -232,3 +232,48 @@ The usual rules of the order of operators also apply here.
 
 String Theory
 *************
+
+A string is a sequence of characters. Usually it represents something interesting like a name or an identity number, or some other data that has been input. Python has many useful features that allow strings to be manipulated.
+
+.. sidebar:: Languages
+
+    There are many programming languages, and many programmers would say they have a favourite. The thing is that languages have strengths and weaknesses, and some are more suited to different tasks than others. The trick is often to pick the most suitable language for a given task.
+
+Strings are denoted by quotation marks. Single or double quotes are fine, and are equivalent. The only time the choice becomes important is if the string itself includes a string. So these are all fine:
+
+.. code-block::
+
+    >>> 'Sir Robin'
+    'Sir Robin'
+    >>> "King Arthur"
+    'King Arthur'
+    >>> "Galahad's Sword"
+    "Galahad's Sword"
+    >>>
+
+The simplest way (and probably most common) way to process a string is to extract certain characters. Characters in the string are given index numbers, from left to right. So the first character is at index ``0``, and the last has an index of the length of the string less one. This last is a bit complicated, and is a common this to want, so the last character also has index ``-1``. Indexes work from either end of the string, like so:
+
+.. code-block::
+
+    >>> 'Sir Robin'[0]
+    'S'
+    >>> 'Sir Robin'[2]
+    'r'
+    >>> 'Sir Robin'[-1]
+    'n'
+    >>> 'Sir Robin'[-3]
+    'b'
+
+It is also possible to extract ranges of characters from a string, by providing two indexes, a start and an end. If one is missed off, it defaults to the end of the string.
+
+.. code-block::
+
+    >>> 'Sir Robin'[0:3]
+    'Sir'
+    >>> 'Sir Robin'[4:]
+    'Robin'
+    >>> 'Sir Robin'[:-1]
+    'Sir Robi'
+
+This "slicing" seems a simple idea, but is incredibly powerful and useful in many applications.  There are many, many, more built-in operations for string wrangling, which we will meet later on.
+
