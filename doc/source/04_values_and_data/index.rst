@@ -277,3 +277,102 @@ It is also possible to extract ranges of characters from a string, by providing 
 
 This "slicing" seems a simple idea, but is incredibly powerful and useful in many applications.  There are many, many, more built-in operations for string wrangling, which we will meet later on.
 
+Using Variables
+===============
+
+The correct name for a value in a program is a *variable*. A variable has a type, and a value. Usually the value changes as the program runs. In Python a variable is created just by giving it a value:
+
+.. code-block::
+
+    >>> foo = 3
+
+It is important to pick a name for the variable (correctly, that's called the *identifier*) that explains its purpose. The example above is meaningless, so it is much better to pick an identifier that explains what the value is:
+
+.. code-block::
+
+    >>> number_of_knights = 3
+
+There is a balance to hit between names that are too long and names that are too short and cryptic. These are both bad choices, for reasons that should be obvious:
+
+.. code-block::
+
+    >>> nok = 3
+    >>> the_number_of_knights_seeking_the_holy_grail = 3
+
+A further downside to long identifiers is that errors in spelling them can lead to errors in programs that are very, very hard to find.
+
+By convention, variable identifiers in Python are written in ``lower_snake_case``. With words separated by underscores, and everything in lower case.
+
+.. important::
+
+    Conventions like this are important. They may seem pointless now, but if your programs don't follow them you will confuse experienced programmers if you ask for help. In a work setting, if you didn't follow them you would just be told to go away and rewrite the code "properly"!
+
+Input and Output
+================
+
+Armed with varaibles, there are two more things needed before we can write a useful program. First, we need to be able to take some values as *input*, and then we need to *output* the results. The simplest cases here are to take input that the user types on the keyboard, and to display the results on the screen. More realistic programs read or write files, or use graphical interfaces, but the simple "screen and keyboard" approach will do for now.
+
+For the moment we will also assume that the user behaves as expected, and enters values that make sense in the current program. Obviously in real life users do not behave that way, but assuming they do will simplify the problem for now!
+
+Getting Input
+*************
+
+To get some input from a user we need to display a helpful prompt, and then wait while they type. Usually, their input will be ended when they hit "Enter" or "Return". Once we have the input we need to store it away in a suitable variable. There is a lot going on here, but Python provides a single command to do the job.
+
+The ``input`` command displays a prompt, and waits for the user to type. Once the user hits Enter, the value entered is *returned* and can be stored in a variable. The value is always read as a string, so sometimes there is a need to convert it to a required type. It is very unlikely that the user would be asked to enter a Boolean value, so the conversion is almost always to an integer or floating-point value. In these examples, see that entering the identifier of a variable at the Python prompt just displays the current value of that variable:
+
+.. code-block::
+
+    >>> name = input('What is your name? ')
+    What is your name? Sir Robin
+    >>> name
+    'Sir Robin'
+
+    >>> number_of_knights = int(input('How many knights follow the quest? '))
+    How many knights follow the quest? 5
+    >>> number_of_knights
+    5
+
+    >>> speed = float(input('Enter the average speed of an African Swallow: '))
+    Enter the average speed of an African Swallow: 37.5
+    >>> speed
+    37.5
+
+Take a close look at the brackets in the second example. There are two *functions* used - ``int`` and ``float`` - to convert the values. Your IDE should show an error if the brackets match incorrectly.
+
+This will be enough, for now, to allow us to write programs that take input. In later episodes we will need to validate the input for its type, and possibly its value, but this will do for now.
+
+Displaying Results
+******************
+
+The command to display a value on the screen is ``print``. It takes either a literal value, like this:
+
+.. code-block::
+
+    >>> print('Hello, World')
+    Hello, World
+
+Or it can take a variable identifier (notice there are no quote marks here):
+
+    >>> message = 'Spam and Eggs'
+    >>> print(message)
+    Spam and Eggs
+
+The ``print`` command can also print a collection of values. These are provided separated by commas, and by default are printed with spaces between.
+
+    >>> print('There are', swallow_count, 'swallows.')
+    There are 3 swallows.
+
+There are other options, but as with ``input``, this will do for now.
+
+.. tip::
+
+    Those spaces can be annoying, and are not always wanted. The quick fix at this point is to add an optional "separator" to the ``print`` command, like this:
+
+    .. code-block::
+
+        >>> print('Spam', 'Eggs', 'Spam')
+        Spam Eggs Spam
+        >>> print('Spam', 'Eggs', 'Spam', sep='')
+        SpamEggsSpam
+
