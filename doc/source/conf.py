@@ -28,8 +28,8 @@ html_theme_options = {
     'use_sidenotes': True,
 }
 
+html_last_updated_fmt = "%A %d %B, %Y"
 html_logo = "_images/python-powered-h-140x182.png"
-
 html_title = 'The Python Book'
 
 copybutton_exclude = '.linenos, .gp'
