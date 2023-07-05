@@ -375,4 +375,3 @@ There are other options, but as with ``input``, this will do for now.
         Spam Eggs Spam
         >>> print('Spam', 'Eggs', 'Spam', sep='')
         SpamEggsSpam
-

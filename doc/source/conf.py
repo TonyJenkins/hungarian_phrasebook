@@ -26,10 +26,14 @@ html_theme_options = {
         'indices.html',
     ],
     'use_sidenotes': True,
+    'logo': {
+        'image_light': '_images/python_britannica.png',
+        'image_dark': '_images/python_britannica_inverted.png',
+    },
 }
 
 html_last_updated_fmt = "%A %d %B, %Y"
-html_logo = "_images/python-powered-h-140x182.png"
+# html_logo = "_images/python_britannica.png"
 html_title = 'The Python Book'
 
 copybutton_exclude = '.linenos, .gp'
@@ -48,5 +52,5 @@ latex_elements = {
 
 latex_show_urls = 'footnote'
 
-latex_logo = html_logo
+latex_logo = '_images/python_britannica.png'
 latex_theme = 'manual'
