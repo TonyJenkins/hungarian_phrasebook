@@ -133,7 +133,7 @@ A side effect of this is that there is a lot of choice when it comes to created 
 
 .. rubric:: Footnotes
 
-.. [#tell] The word "tell" is not a very good one here, because it suggests that the computer as some awareness, and knows what it is doing. Of course, this is not, yes, true. But as you start out in programming this can be a useful way of understanding what is going on - you have a problem, and you are telling the computer how to solve it.
+.. [#tell] The word "tell" is not a very good one here, because it suggests that the computer as some awareness, and knows what it is doing. Of course, this is not, yet, true. But as you start out in programming this can be a useful way of understanding what is going on - you have a problem, and you are telling the computer how to solve it.
 .. [#bool] This is a rare case in computing of an idea being named after a person (eponymy). Bonus credit if you can find more.
 .. [#float] This means that there are some decimal numbers that it is impossible to represent inside a computer. Different ways of representing numbers with decimal parts exist, and have different levels of accuracy, but this is not something you need to worry about in normal programming.
 .. [#cds] We're talking about the format of the data on the disk here, but the same applies to the physical format. Not so long ago, for example, every PC had a CD drive. Now, very few do. So what shall we do with all that data we archived to CD in the 1990s and 2000s? Let's hope none of it was important, eh?
