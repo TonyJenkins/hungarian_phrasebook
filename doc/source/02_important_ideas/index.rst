@@ -29,14 +29,27 @@ Repetition
 
 These three are the three most basic building blocks that make up any set of instructions. They are also the basic building blocks of a computer program. When writing a program, a programmer supplies the computer with an ordered list of instructions, along with the choices and repetitions that are needed to achieve a successful result. The instructions are expressed in a programming language, like Python.
 
+Values and Types
+================
+
+In many daily tasks we are involved with *values*.
+
+Some of these are numbers, or numeric. We might have to pay a bus fare, buy a needed amount of something, or walk a certain distance. We are good at recognising these values and in carrying out tasks that involve them. Generally we think in units of tens, or fractions of tens, or multiples of 10. Multiples of 10 (powers) are handy for bigger numbers: 10\ :sup:`2` is 100, 10\ :sup:`3` is 1000 and so on. These numbers are all integers, or whole numbers.
+
+Fractions of 10 are used for smaller numbers, and numbers less than 1. These are floating-point numbers. They can also be represented as powers: 10\ :sup:`-1` is 0.1, or a tenth; 10\ :sup:`-2` is 0.01, or a hundredth. Presumably our obsession with working in 10s like this comes from the usual number of fingers on our hands.
+
+Other values we use every day are characters. These could be letters, digits, punctuation marks, of even emojis. Characters might represent a name or email address. They could also represent a phone number - in this case the characters are also digits, but they are characters unless we plan to add up phone numbers, which is unlikely. A single character can have meaning - a grade on a test, for example. A collection of characters can also have a meaning, sometimes only if they are read in a particular order.
+
+So, we use *values*, and values have *types*. We carry out operations on values, and what operations we can do are determined by the types.
+
 True and False
 ==============
 
 .. highlight:: none
 
-Some statements are always True, and this can never change::
+We also deal with the ideas of truth, and fakery. For example, some statements are always True, and this can never change::
 
-    Alan Turing proposed the Turing Test for Artificial Intelligence in 1950.
+    Alan Turing proposed the Turing Test for Artificial Intelligence.
 
 Some statements, on the other hand, are always False, and this will never change::
 
@@ -55,7 +68,7 @@ Boole also showed how True and False can be combined using what are now known as
     Alan Turing is a famous Computer Scientist.
     Alan Turing proposed the Turing Test.
 
-    Alan Turing is a famous Computer Scientist, who proposed the Turing Test.
+    Alan Turing, the famous Computer Scientist, proposed the Turing Test.
 
 There are a whole bunch of logic operators, but most of them are only really useful when working with electronics or hardware. For programming purposes, three are usually enough. ``AND`` and ``OR`` combine two logic values (let's call them ``A`` and ``B``, like this:
 
@@ -77,6 +90,62 @@ False True
 True  False
 ===== =====
 
+Binary
+======
+
+So, how does a computer store the data it needs? Computers do not have 10 fingers, but they do have electrical current [#onoff]_. A current has two possible values; it can be "on", or it can be "off". So computers count in 2s, which is called *binary*.
+
+Remember that humans count in 10s. We find 10s easy, probably because we are taught to use 10s from an early age. The origins of this are presumably that we have 10 fingers, and we can use these to count. Powers are important here. To handle larger numbers we give certain powers of 10 special names, so:
+
+* 10 x 10 (or 10\ :sup:`2`) is a hundred.
+* 10 x 10 x 10 ((or 10\ :sup:`3`) is a thousand.
+
+and so on. This is called *base 10* or sometimes *denary* or (less accurately) *decimal*.
+
+Computers do not have fingers! A computer is an electronic device. Electricity is something that is either "on" or "off". So if a sentient computer could count, it would count in 2s, in much the same way as humans use 10s. This is called *base 2*, or *binary*.
+
+This means that every data value stored inside a computer is *encoded* in binary. The details are not important here, but an overview is.
+
+* An integer can just be stored as its binary equivalent.
+* Various cunning ways exist to store numbers with fractional parts[#float]_.
+* Character data can be stored by using a table to convert between numberic values and the characters. The most common one
+  is `Unicode <https://en.wikipedia.org/wiki/Unicode>`_.
+
+If a computer could somehow write out an integer it would have just two symbols to work with, ``1`` and ``0``. It would also work in powers of 2: 2\ :sup:`2` is denary 4, 2\ :sup:`3` is denary 8, and so on.
+
+.. hint::
+
+    To avoid confusion it is usual to add a subscript to a number when different number bases are involved. So 8\ :sub:`10` means the number 8, in denary (base 10). Likewise, 1000\ :sub:`2` is a binary value. (The two happen to represent the same number).
+
+.. important::
+
+    Knowing and recognising the powers of 2 is a hugely important skill in computer science::
+
+        1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048
+
+    If you have ever bought a laptop, you will recognise those numbers from the system specs!
+
+So how would a computer represent, say, 3\ :sub:`10`?
+
+Easy. Look at the powers (it helps to see them in reverse order::
+
+        2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1
+
+3 is just 2 + 1. So, in binary 3 is 11\ :sub:`2`.
+
+How about a bigger number? Calculate it like this. First find the powers of 2 that are needed::
+
+    42 = 32 + 8 + 2
+
+
+Add in the missing ones::
+
+    42 = (1 x 32) + (0 x 16) + (1 x 8) + (0 x 4) + (1 x 2) + (0 x 1)
+
+And read off the 1s and 0s. In this case 42\ :sub:`10` is 101010\ :sub:`2`.
+
+Most of this will be hidden as we write programs, but it helps to understand that this is happening "behind the scenes".
+
 How Computers Work
 ==================
 
@@ -92,27 +161,6 @@ The heart of a computer is the CPU. This is the chip that can carry out operatio
 So, when a program runs, it is first loaded into the memory. If the program requires some data (say a user has to type in a value), that data is also stored in memory. When the CPU needs it, it is copied into the CPU's memory, where is can be processed. Once done, the result is copied back into the main RAM, and the program carries on.
 
 It is, obviously, much more complicated than that, with a modern CPU having many cores to allow it to process many things at the same time. But hold on to this idea of data being stored in memory, copied to the CPU, and written back. It's important.
-
-Binary
-======
-
-So, how does a computer store the data it needs? It's basically a case of combining the previous two ideas. Again, what follows is simplified, and not strictly accurate, but it's the overall idea that matters.
-
-Humans count in 10s. We find 10s easy, probably because we are taught to use 10s from an early age. The origins of this are presumably that we have 10 fingers, and we can use these to count. To handle larger numbers we give certain powers of 10 special names, so:
-
-* 10 x 10 (or 10\ :sup:`2`) is a hundred.
-* 10 x 10 x 10 ((or 10\ :sup:`3`) is a thousand.
-
-and so on. This is called *base 10* or sometimes *denary* or (less accurately) *decimal*.
-
-Computers do not have fingers! A computer is an electronic device. Electricity is something that is either "on" or "off". So if a sentient computer could count, it would count in 2s, in much the same way as humans use 10s. This is called *base 2*, or *binary*.
-
-This means that every data value stored inside a computer is *encoded* in binary. The details are not important here, but an overview is.
-
-* An integer can just be stored as its binary equivalent.
-* Various cunning ways exist to store numbers with fractional parts[#float]_.
-* Character data can be stored by using a table to convert between numberic values and the characters. The most common one
-  is `Unicode <https://en.wikipedia.org/wiki/Unicode>`_.
 
 Text Files
 ==========
@@ -136,4 +184,5 @@ A side effect of this is that there is a lot of choice when it comes to created 
 .. [#tell] The word "tell" is not a very good one here, because it suggests that the computer as some awareness, and knows what it is doing. Of course, this is not, yet, true. But as you start out in programming this can be a useful way of understanding what is going on - you have a problem, and you are telling the computer how to solve it.
 .. [#bool] This is a rare case in computing of an idea being named after a person (eponymy). Bonus credit if you can find more.
 .. [#float] This means that there are some decimal numbers that it is impossible to represent inside a computer. Different ways of representing numbers with decimal parts exist, and have different levels of accuracy, but this is not something you need to worry about in normal programming.
+.. [#onoff] In early computers, "on" and "off" would have corresponded to two positions of an actual switch or button, of course.
 .. [#cds] We're talking about the format of the data on the disk here, but the same applies to the physical format. Not so long ago, for example, every PC had a CD drive. Now, very few do. So what shall we do with all that data we archived to CD in the 1990s and 2000s? Let's hope none of it was important, eh?
