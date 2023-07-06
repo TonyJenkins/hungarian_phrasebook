@@ -52,5 +52,5 @@ latex_elements = {
 
 latex_show_urls = 'footnote'
 
-latex_logo = '_images/python_britannica.png'
+latex_logo = '_static/python_britannica_cover.png'
 latex_theme = 'manual'
