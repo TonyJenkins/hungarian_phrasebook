@@ -116,7 +116,7 @@ It has a simple syntax.
 
 Of course, it is not all good news. Python programs can be inefficient, and Python is not the best language if you want to develop something that will run lightning fast in an embedded system. But that's not the point, and it's not what Python is for.
 
-Python is also intended to be fun. It's name is a nod to `Monty Python's Flying Circus <https://en.wikipedia.org/wiki/Monty_Python>`_. Many examples and tutorials drawn from the Python canon. `PyPi <https://pypi.org/>`_, the standard repository of Python packages is sometimes affectionately called `The Cheese Shop <https://www.youtube.com/watch?v=Hz1JWzyvv8A>`_.
+Python is also intended to be fun. Its name is a nod to `Monty Python's Flying Circus <https://en.wikipedia.org/wiki/Monty_Python>`_. Many examples and tutorials drawn from the Python canon. `PyPi <https://pypi.org/>`_, the standard repository of Python packages is sometimes affectionately called `The Cheese Shop <https://www.youtube.com/watch?v=Hz1JWzyvv8A>`_.
 
 Python is completely free. And is also kind of cool.
 
