@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 
-project = 'The Python Book'
+project = 'Yet Another Python Book'
 copyright = '2023, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.01'
@@ -34,7 +34,7 @@ html_theme_options = {
 
 html_last_updated_fmt = "%A %d %B, %Y"
 # html_logo = "_images/python_britannica.png"
-html_title = 'The Python Book'
+html_title = 'Yet Another Python Book'
 
 copybutton_exclude = '.linenos, .gp'
 

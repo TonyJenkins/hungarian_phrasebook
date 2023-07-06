@@ -1,5 +1,5 @@
-The Python Book
-===============
+Yet Another Python Book
+=======================
 
 .. toctree::
    :maxdepth: 2
