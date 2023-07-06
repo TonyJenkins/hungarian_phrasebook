@@ -27,8 +27,8 @@ html_theme_options = {
     ],
     'use_sidenotes': True,
     'logo': {
-        'image_light': '_images/python_britannica.png',
-        'image_dark': '_images/python_britannica_inverted.png',
+        'image_light': '_images/python_britannica_small.png',
+        'image_dark': '_images/python_britannica_inverted_small.png',
     },
 }
 
