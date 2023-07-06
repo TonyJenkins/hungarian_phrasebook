@@ -179,8 +179,6 @@ A side effect of this is that there is a lot of choice when it comes to created 
 .. hint::
    If you have some valuable data, consider keeping it in a plain text file. So if you lose that beautiful Word CV, at least you have the data so you can rebuild it. And if you really want to store some data so it will be around for 50 years, print it out and put the paper somewhere safe.
 
-.. rubric:: Footnotes
-
 .. [#tell] The word "tell" is not a very good one here, because it suggests that the computer as some awareness, and knows what it is doing. Of course, this is not, yet, true. But as you start out in programming this can be a useful way of understanding what is going on - you have a problem, and you are telling the computer how to solve it.
 .. [#bool] This is a rare case in computing of an idea being named after a person (eponymy). Bonus credit if you can find more.
 .. [#float] This means that there are some decimal numbers that it is impossible to represent inside a computer. Different ways of representing numbers with decimal parts exist, and have different levels of accuracy, but this is not something you need to worry about in normal programming.
