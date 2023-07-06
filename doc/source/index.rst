@@ -19,4 +19,5 @@ Yet Another Python Book
     :caption: Endmatter:
 
     99_colophon/index.rst
+    999_credits/index.rst
 
