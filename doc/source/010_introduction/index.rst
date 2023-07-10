@@ -132,7 +132,7 @@ It can be interactive.
     Which means that the Python Interpreter can be used as an interactive tool to try things out, check out ideas, and test programming snippets before using them for real.
 It is relatively small.
     Which means that Python has a relatively small core, so we can hope to cover most of it. But it also has an architecture that allows it to be extended with external modules. Modules exist to do all sorts of cool stuff. It is massively extensible.
-It has a simple syntax.
+It has a simple straightforward syntax.
     Which means that it is usually obvious what a program does. Quite often simply reading a Python program out loud can explain what is going on.
 
 Of course, it is not all good news. Python programs can be inefficient, and Python is not the best language if you want to develop something that will run lightning fast in an embedded system. But that's not the point, and it's not what Python is for.
