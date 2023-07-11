@@ -251,7 +251,7 @@ Strings are denoted by quotation marks. Single or double quotes are fine, and ar
     "Galahad's Sword"
     >>>
 
-The simplest way (and probably most common) way to process a string is to extract certain characters. Characters in the string are given index numbers, from left to right. So the first character is at index ``0``, and the last has an index of the length of the string less one. This last is a bit complicated, and is a common this to want, so the last character also has index ``-1``. Indexes work from either end of the string, like so:
+The simplest way (and probably most common) way to process a string is to extract certain characters. Characters in the string are given index numbers, from left to right. So the first character is at index `0`, and the last has an index of the length of the string less one. This last is a bit complicated, and is a common this to want, so the last character also has index `-1`. Indexes work from either end of the string, like so:
 
 .. code-block::
 
@@ -306,6 +306,20 @@ By convention, variable identifiers in Python are written in ``lower_snake_case`
 .. important::
 
     Conventions like this are important. They may seem pointless now, but if your programs don't follow them you will confuse experienced programmers if you ask for help. In a work setting, if you didn't follow them you would just be told to go away and rewrite the code "properly"!
+
+Another example of a convention is when a program needs to handle a *constant* value. This is a variable that will be used in the program, but the value will always be the same. A variable that will not vary, if you like. By convention, the identifiers of these values are witten in ``UPPER_SNAKE_CASE``. This is irrelevant to Python, but very useful to someone reading a program. So when a programmer sees:
+
+.. code-block::
+
+    >>> KNIGHTS_IN_HORSE = 4
+
+It is clear that this is a value that is used in the program, but which will never change.
+
+.. important::
+
+    This might seem a bit odd, but the idea is to define the constant value in one place, and then potentially use it in many places. If it needs to be changed, it changes in just the definition, so is just changed the once.
+
+Using constants like this also improves the readability of programs. It is oftem said that programs are read much more often than they are written!
 
 Input and Output
 ================
