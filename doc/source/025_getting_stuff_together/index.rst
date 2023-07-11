@@ -186,7 +186,7 @@ The most important messages here are:
 
 #. Choose your toolset for programming wisely. Listen to others, but make the choice yourself.
 #. Once chosen, customise it. Devote time to this. Get it *just right*.
-#. Time invested in learning and customising tool might not produce any programs, but it is not wasted time. Quite the opposite, it is time that will pay you back over and over again in the future.
+#. Time invested in learning and customising a tool might not produce any programs, but it is not wasted time. Quite the opposite, it is time that will pay you back over and over again in the future.
 
 This book includes Python programs, so then whole thing was developed using PyCharm (new interface, tweaked colour scheme). The files themselves are on GitHub. The reason for all this is that is what the author prefers to use. You are encouraged to be different!
 
