@@ -51,7 +51,7 @@ Programming
 
 Above all, this book is about *programming*, and the things that programmers do. A popular image is that programming is a very solitary occupation, with a programmer involved in some sort of late night mortal combat, trying to bend a computer to their will. Well, it does feel like that sometimes, but more often programming is a social occupation, working with others to produce something cool. So this book will occasionally step away from the details of Python to go into **what programmers do**.
 
-Let's be clear about this. Programmers use Google. They use StackOverflow. They wander across the office to ask a colleague to take a look at their code. They use version control tools. They chat on Slack or Teams. They explain programming problems to small plastic ducks [#duck]_. All of these, and there are more, make them more productive. While the details are probably beyond the scope of this book, it is so important to know they are there, and that they are basic parts of the way programmers work. Very often, when a new programmer sees a Senior Developer fix a problem all that Senior knew was what to Google. Really.
+Let's be clear about this. Programmers use Google. They use StackOverflow. They wander across the office to ask a colleague to take a look at their code. They use version control tools. They chat on Slack or Teams. They explain programming problems to small plastic ducks\ [#duck]_. All of these, and there are more, make them more productive. While the details are probably beyond the scope of this book, it is so important to know they are there, and that they are basic parts of the way programmers work. Very often, when a new programmer sees a Senior Developer fix a problem all that Senior knew was what to Google. Really.
 
 To put it another way, what experienced programmers have is, ah, *experience*. This means that they have seen most of the problems before, and know how to solve them. In the trade, this is called *abstraction* - the ability to take a solution to a problem you have seen before, recognise that a "new" problem is actually the same one, and map the solution over. This experience comes with time, and comes from working with other programmers. Another reason why programming is often a social process.
 
@@ -101,7 +101,7 @@ Many programming languages do have a sense of style and idiom. This relates to h
 
     This book will follow the standard conventions for Python, which are set out in a document called `PEP-8 <https://peps.python.org/pep-0008/>`_. Very different conventions would apply if we were using Java.
 
-There are many surveys of the current popularity of programming languages [#lang]_. This is all a bit artificial, because some languages are more suited to certain applications, and some applications are more widespread than others. The top five languages in these surveys, though, are usually fairly consistent, although the order changes. **Alphabetically**, they are:
+There are many surveys of the current popularity of programming languages\ [#lang]_. This is all a bit artificial, because some languages are more suited to certain applications, and some applications are more widespread than others. The top five languages in these surveys, though, are usually fairly consistent, although the order changes. **Alphabetically**, they are:
 
 * C++
 * C#

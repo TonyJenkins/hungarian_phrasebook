@@ -11,7 +11,7 @@ At this point most books on programming leap right on in and start on the code. 
 Instructions
 ============
 
-A computer program is just a set of instructions. The instructions tell [#tell]_ the computer how to carry out some task.
+A computer program is just a set of instructions. The instructions tell\ [#tell]_ the computer how to carry out some task.
 
 .. sidebar:: Try It!
 
@@ -69,7 +69,7 @@ Any statement can be tested, and from the test its "truth value" can be determin
 
     Python is named after *Monty Python's Flying Circus*.
 
-Some statements, on the other hand, are always false, and this will never change [#guido]_::
+Some statements, on the other hand, are always false, and this will never change\ [#guido]_::
 
     Johnny Depp created the Python programming language.
 
@@ -81,7 +81,7 @@ It could be true as you read this, or it could be false. I have no way of knowin
 
 Programming revolves around these two values, for reasons we will see in a moment. A statement is true, or it is false. Perhaps it is true that a program's user has clicked a button in the interface, and so the program better respond in some useful way. Maybe it is false that the user has permission to access that part of the application.
 
-`True` and `False` are called **Boolean** values, named after `George Boole <https://en.wikipedia.org/wiki/George_Boole>`_, who in 1847 first applied mathematical ideas to logic [#bool]_. The word Boolean is usually written with a capital B for this reason.
+`True` and `False` are called **Boolean** values, named after `George Boole <https://en.wikipedia.org/wiki/George_Boole>`_, who in 1847 first applied mathematical ideas to logic\ [#bool]_. The word Boolean is usually written with a capital B for this reason.
 
 Boole also showed how True and False can be combined using what are now known as Boolean (or logic) operators. For example, if there are two statements, **and** both are True, we can agree that a combined statement is True::
 
@@ -122,7 +122,7 @@ Why is this important? Let's look at how computers (for the want of a better wor
 Binary
 ======
 
-So, how does a computer store the data it needs? Computers do not have 10 fingers, but they do have electrical switches [#onoff]_. A switch has two possible values; it can be "on", or it can be "off", just like a light-switch at home.
+So, how does a computer store the data it needs? Computers do not have 10 fingers, but they do have electrical switches\ [#onoff]_. A switch has two possible values; it can be "on", or it can be "off", just like a light-switch at home.
 
 So computers count in 2s, which is called *binary*.
 
@@ -142,11 +142,11 @@ Computers do not have fingers! A computer is an electronic device, based around 
 This means that every data value stored inside a computer, either in memory or on a disk, is *encoded* in binary. The details are not important here, but an overview is.
 
 * An integer can just be stored as its binary equivalent.
-* Various cunning ways exist to store floating-point numbers with fractional parts [#float]_.
+* Various cunning ways exist to store floating-point numbers with fractional parts\ [#float]_.
 * Character data can be stored by using a table to convert between numeric values and the characters. The most common one
   is `Unicode <https://en.wikipedia.org/wiki/Unicode>`_.
 
-So if a computer could somehow write out an integer it would have just two symbols to work with, ``1`` and ``0``. It would also work in powers of 2: 2\ :sup:`2` is denary 4, 2\ :sup:`3` is denary 8, and so on.
+So if a computer could somehow write out an integer it would have just two symbols to work with, `1` and `0`. It would also work in powers of 2: 2\ :sup:`2` is denary 4, 2\ :sup:`3` is denary 8, and so on.
 
 .. hint::
 
@@ -209,7 +209,7 @@ Text Files
 
 The simplest file is just a *plain text* file. It contains characters, encoded in binary. The characters could represent anything - a shopping list, a Python program, a set of system specs. This format has been around for as long as modern computers have been. Should we find a plain text file from the 1960s or 1970s we would have a very good chance of accessing its contents in the 2020s.
 
-The coupling of applications and files is becoming an issue in general Computing. Files created with applications that have become obsolete are themselves obsolete, with the owners unable to get at the data within. This is a big problem for businesses that rely on this data, and often means that they have to spend a lot of money maintaining obsolete software just so they can get at their data. The format in which we store our data is important - we can access documents written on paper hundreds of years ago, but getting at a document written in Wordwise of a home microcomputer in 1985 is basically impossible [#cds]_.
+The coupling of applications and files is becoming an issue in general Computing. Files created with applications that have become obsolete are themselves obsolete, with the owners unable to get at the data within. This is a big problem for businesses that rely on this data, and often means that they have to spend a lot of money maintaining obsolete software just so they can get at their data. The format in which we store our data is important - we can access documents written on paper hundreds of years ago, but getting at a document written in Wordwise of a home microcomputer in 1985 is basically impossible\ [#cds]_.
 
 One format that will always be used and will always be decipherable is that good old *plain text*. In Windows, such files are often opened with the Notepad editor, but they can be opened with many, many tools. Programs are written in plain text files. This means that programs written decades ago can still be read and understood, even if the computers that could run them are long gone. It also means that *every* computer has a tool that can be used to edit programs in plain text files (assuming the computer has some sort of keyboard!).
 

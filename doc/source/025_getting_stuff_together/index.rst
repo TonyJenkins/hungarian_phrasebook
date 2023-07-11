@@ -10,7 +10,7 @@ So, now to get everything together so that we can start programming. You may alr
 
     Bearing in mind that every programmer works best in a different way, this book will not assume that you are using any particular tool. It's up to you. By all means ask for recommendations, but don't feel you have to follow them!
 
-First, we need a reasonably powerful PC or laptop [#lappybest]_; anything from the last five years or so will be fine. The programs we will be working on here are not going to need huge amounts of system resources, so that old laptop on the shelf will do fine if you blow the dust off. There are no important requirements for disk space or memory for Python itself, but when we come on to think about development environments you might want to check out their requirements.
+First, we need a reasonably powerful PC or laptop\ [#lappybest]_; anything from the last five years or so will be fine. The programs we will be working on here are not going to need huge amounts of system resources, so that old laptop on the shelf will do fine if you blow the dust off. There are no important requirements for disk space or memory for Python itself, but when we come on to think about development environments you might want to check out their requirements.
 
 So, having dusted off some kit, and that it has a web browser and Internet connection, there are two main things to get installed.
 
@@ -53,7 +53,7 @@ Python is free, and can be downloaded from `The Python Home Page <https://www.py
 
 There are Download links for Windows and Mac. Windows users will also find it in the Windows Marketplace, but it is usually easier to install from the main Pythin downloads page, and this also means that the version will be the latest one.
 
-Linux users most likely already have Python installed [#linuxversion]_, so have nothing to do. Opening up a terminal and typing::
+Linux users most likely already have Python installed\ [#linuxversion]_, so have nothing to do. Opening up a terminal and typing::
 
     $ python3
 
@@ -139,7 +139,7 @@ PyCharm
     :width: 600
     :alt: PyCharm's Previous UI with Python program open
 
-PyCharm is a commercial product [#jetbrainsaccount]_, developed and marketed by `JetBrains <https://www.jetbrains.com>`_. Happily there is a free "Community" version; this lacks many of the features of the "Professional" product, but those are not likely to be of any interest to us here. The Community Edition will be fine. It is a straightforward download.
+PyCharm is a commercial product\ [#jetbrainsaccount]_, developed and marketed by `JetBrains <https://www.jetbrains.com>`_. Happily there is a free "Community" version; this lacks many of the features of the "Professional" product, but those are not likely to be of any interest to us here. The Community Edition will be fine. It is a straightforward download.
 
 The image above is actually the "Professional" version of PyCharm; the "Community" version would have fewer menu options across the top. It is using a third-party plugin for a theme, again a dark one. Clicking the small green arrow to the left of the program would run it, and the output would appear below.
 
@@ -177,7 +177,7 @@ It's also worth considering spending some time looking at other tools that will 
 
 It is also worth looking at *version control* tools. These are tools that keep track of programs as they are developed, changed, and otherwise maintained. These will become essential later on, but there is no good reason not to get started with them now. The standard is `Git <https://git-scm.com>`_ which is free and available for all operating systems. There are plenty of tutorials to give you the basic idea, and Git is actually built in to both VS Code and PyCharm.
 
-A site like `GitHub <https://github.com>`_ combines version control and cloud storage [#othervcs]_. As well as keeping work safe it is also a fine place to build a portfolio of work, such as a `Book <https://github.com/TonyJenkins/hungarian_phrasebook>`_. As we work in more mobile ways, it is very useful to keep program code in the Cloud, so that it can be downloaded and work on using whatever PC or laptop happens to be available at the time.
+A site like `GitHub <https://github.com>`_ combines version control and cloud storage\ [#othervcs]_. As well as keeping work safe it is also a fine place to build a portfolio of work, such as a `Book <https://github.com/TonyJenkins/hungarian_phrasebook>`_. As we work in more mobile ways, it is very useful to keep program code in the Cloud, so that it can be downloaded and work on using whatever PC or laptop happens to be available at the time.
 
 Takeaways
 =========
