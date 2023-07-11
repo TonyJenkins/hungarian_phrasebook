@@ -139,7 +139,7 @@ PyCharm
     :width: 600
     :alt: PyCharm's Previous UI with Python program open
 
-PyCharm is a commercial product [#jetbrains_account]_, developed and marketed by `JetBrains <https://www.jetbrains.com>`_. Happily there is a free "Community" version; this lacks many of the features of the "Professional" product, but those are not likely to be of any interest to us here. The Community Edition will be fine. It is a straightforward download.
+PyCharm is a commercial product [#jetbrainsaccount]_, developed and marketed by `JetBrains <https://www.jetbrains.com>`_. Happily there is a free "Community" version; this lacks many of the features of the "Professional" product, but those are not likely to be of any interest to us here. The Community Edition will be fine. It is a straightforward download.
 
 The image above is actually the "Professional" version of PyCharm; the "Community" version would have fewer menu options across the top. It is using a third-party plugin for a theme, again a dark one. Clicking the small green arrow to the left of the program would run it, and the output would appear below.
 
@@ -177,7 +177,7 @@ It's also worth considering spending some time looking at other tools that will 
 
 It is also worth looking at *version control* tools. These are tools that keep track of programs as they are developed, changed, and otherwise maintained. These will become essential later on, but there is no good reason not to get started with them now. The standard is `Git <https://git-scm.com>`_ which is free and available for all operating systems. There are plenty of tutorials to give you the basic idea, and Git is actually built in to both VS Code and PyCharm.
 
-A site like `GitHub <https://github.com>`_ [#othervcs]_ combines version control and cloud storage. As well as keeping work safe it is also a fine place to build a portfolio of work, such as a `Book <https://github.com/TonyJenkins/hungarian_phrasebook>`_. As we work in more mobile ways, it is very useful to keep program code in the Cloud, so that it can be downloaded and work on using whatever PC or laptop happens to be available at the time.
+A site like `GitHub <https://github.com>`_ combines version control and cloud storage [#othervcs]_. As well as keeping work safe it is also a fine place to build a portfolio of work, such as a `Book <https://github.com/TonyJenkins/hungarian_phrasebook>`_. As we work in more mobile ways, it is very useful to keep program code in the Cloud, so that it can be downloaded and work on using whatever PC or laptop happens to be available at the time.
 
 Takeaways
 =========
@@ -194,5 +194,5 @@ Now, let's make some code.
 
 .. [#lappybest] A laptop is best, because it can come with you. The ideal setup for most programmers is a laptop along with an external monitor on any desk where they are likely to roost.
 .. [#linuxversion] The way that Linux distros are updated means that this might not be the latest version. That's fine. The version will update from time to time.
-.. [#jetbrains_account] JetBrains offer educational discounts for students and staff. At present this consists of free access to the full versions of all their tools. All that is usually required is to create an account with a University or College email address.
+.. [#jetbrainsaccount] JetBrains offer educational discounts for students and staff. At present this consists of free access to the full versions of all their tools. All that is usually required is to create an account with a University or College email address.
 .. [#othervcs] See also `GitLab <https://about.gitlab.com>`_, `BitBucket <https://bitbucket.org/product>`_.
