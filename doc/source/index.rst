@@ -4,13 +4,14 @@ Yet Another Python Book
 .. toctree::
     :numbered:
     :maxdepth: 2
-    :caption: Contents:
+    :caption: Contents
 
     010_introduction/index.rst
     020_important_ideas/index.rst
     025_getting_stuff_together/index.rst
     030_getting_started/index.rst
     040_values_and_data/index.rst
+    050_exceptions/index.rst
 
 .. raw:: latex
 
