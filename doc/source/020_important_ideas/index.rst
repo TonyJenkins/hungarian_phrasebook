@@ -67,7 +67,7 @@ There is another sort of value that is very important in Computing. It gets a se
 
 Any statement can be tested, and from the test its "truth value" can be determined. That said, some statements are always true, and this can never change::
 
-    Python is named after *Monty Python's Flying Circus*.
+    Python is named after Monty Python's Flying Circus.
 
 Some statements, on the other hand, are always false, and this will never change\ [#guido]_::
 
