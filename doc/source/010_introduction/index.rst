@@ -12,7 +12,7 @@ Let's start by considering what this book is, what it is not, and why it is like
 
 .. only:: latex
 
-    This book is also available online. The content should be the same. Go here: `<https://www.tony-jenkins.org.uk>`_.
+    This book is also available online. The content should be the same. Go here: |web|.
 
 About this Book
 ===============

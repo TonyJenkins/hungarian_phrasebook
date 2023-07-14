@@ -1,17 +1,23 @@
 # Configuration file for the Sphinx documentation builder.
 
-
 project = 'Yet Another Python Book'
 copyright = '2023, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.01'
 
+web = 'http://www.tony-jenkins.org.uk/'
+
+rst_epilog = '.. |web| replace:: %s' % web
+
 extensions = [
     'sphinx_copybutton',
+    'sphinx.ext.autosectionlabel',
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
+
+autosectionlabel_prefix_document = True
 
 html_static_path = ['_static']
 
