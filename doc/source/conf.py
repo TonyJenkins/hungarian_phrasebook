@@ -42,6 +42,9 @@ html_last_updated_fmt = "%A %d %B, %Y"
 # html_logo = "_images/python_britannica.png"
 html_title = 'Yet Another Python Book'
 
+html_use_index = True
+html_split_index = True
+
 copybutton_exclude = '.linenos, .gp'
 
 smartquotes = True
