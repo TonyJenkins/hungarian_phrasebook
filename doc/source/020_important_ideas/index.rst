@@ -90,6 +90,8 @@ Boole also showed how True and False can be combined using what are now known as
 
     John Cleese wrote a sketch that was in Monty Python's Flying Circus.
 
+.. _truth-tables:
+
 There are a whole bunch of *logic operators*, but most of them are only really useful when working with electronics or hardware. For programming purposes, three are usually enough. ``AND`` and ``OR`` combine two logic values (let's call them ``A`` and ``B``, like this:
 
 =====  =====  =======  ======
