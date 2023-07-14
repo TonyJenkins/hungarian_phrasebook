@@ -22,4 +22,3 @@ Yet Another Python Book
 
     99_colophon/index.rst
     999_credits/index.rst
-
