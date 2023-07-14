@@ -6,13 +6,15 @@ This is a book about programming. Well, this is a book that is sort of about pro
 
 Let's start by considering what this book is, what it is not, and why it is like that.
 
-.. only:: html
+.. seealso::
 
-    This book is also available as a PDF. The content is the same. :download:`Get it here <../../build/latex/yetanotherpythonbook.pdf>`.
+    .. only:: html
 
-.. only:: latex
+        This book is also available as a PDF. The content is the same. :download:`Get it here <../../build/latex/yetanotherpythonbook.pdf>`.
 
-    This book is also available online. The content should be the same. Go here: |web|.
+    .. only:: latex
+
+        This book is also available online. The content should be the same. Go here: |web|.
 
 About this Book
 ===============
