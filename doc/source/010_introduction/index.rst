@@ -4,6 +4,11 @@ Greetings!
 
 This is a book about programming. Well, this is a book that is sort of about programming.
 
+Let's start by considering what this book is, what it is not, and why it is like that.
+
+About this Book
+===============
+
 This is a book about the Python programming language. Sort of.
 
 This is more a book that introduces the main ideas of programming, and uses Python as the language that illustrates the main ideas.
