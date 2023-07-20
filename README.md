@@ -4,7 +4,7 @@ This, the [Hungarian Phrasebook](https://youtu.be/G6D1YI-41ao), is yet another P
 
 ## Requirements
 
-The book is written using [Sphinx, The Python Documentation Generator (https://www.sphinx-doc.org/)]. Building it requires:
+The book is written using [Sphinx, The Python Documentation Generator](https://www.sphinx-doc.org/). Building it requires:
 
 * Python 3.10 or later.
 * Pip.
