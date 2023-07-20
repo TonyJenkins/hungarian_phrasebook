@@ -502,7 +502,79 @@ This will seem rather abstract at the moment, but we will use this a lot later o
     >>> eggs and spam
     True
 
-The use of Booleans is maybe not obvious at the moment, but they will be crucial later when we need to control the order in which statements are executed.
+The use of Booleans is maybe not obvious at the moment, but they will be crucial later when we need to control the order in which statements are executed. Before that, let's see how values can be combined and compared into *Boolean Expressions*.
+
+Boolean Expressions
+-------------------
+
+A Boolean variable holds either the value ``True`` or ``False``. Similarly, a *Boolean Expression* is an expression that is either ``True`` or ``False``. As with the truth of some statements we met before, some expressions are self-evidently ``True``:
+
+.. code-block::
+
+    >>> 1 == 1
+    True
+
+.. important::
+
+    Heads up! We have used the single equals sign before, for value *assignment*. Two equals signs, as above, is used for *comparison*. So this expression is testing, ah, whether ``1`` equals ``1``, which obviously it does.
+
+More usefully, we can test whether a variable holds a certain value:
+
+.. code-block::
+
+    >>> eggs = 6
+    >>> eggs == 6
+    True
+
+Boolean operators allow for comparing values like this. Look again at the overloading of what an equals sign does! Here are the more common ones:
+
+======== ============          ============ ==============
+Operator Meaning               True Example False Example
+======== ============          ============ ==============
+``==``   Is equal to           1 == 1       3 == 2
+``!=``   Not equal to          1 != 0       1 != 1
+``>``    Greater than          3 > 1        1 > 0
+``<``    Less than             1 < 3        0 < 2
+``>=``   Greater or equal to   2 >= 1       2 >= 3
+``<=``   Less than or equal to 1 <= 1       2 <- 0
+======== ============          ============ ==============
+
+These examples all use integers. The same operators will work with floating-point numbers, in the obvious way. Integers and floating-point numbers can be compared, but care is needed because of the difficulty of storing floating-point values exactly.
+
+.. tip::
+
+    In practice, avoid using ``==`` with floating-point values. The results are not always what you would expect because sometimes storing the value loses some precision.
+
+We did wonder whether ``1`` (the integer) was equal to ``1.0`` (the floating-point). Turns out they are:
+
+.. code-block::
+
+    >>> 1 == 1.0
+    True
+
+A similar experiment will also reveal that, just maybe, Booleans are integers in disguise!\ [#bools]_
+
+.. code-block::
+
+    >>> 1 == True
+    True
+    >>> 0 == False
+    True
+
+And finally, comparison operators also work with strings. The meaning of "less than" and friends is based on the internal (numeric) way strings are stored, but is effectively alphabetical.
+
+These operators can be combined with the Boolean operators to give complex expressions. Suppose we were interested in checking that a number was between 0 and 100 inclusive. That involves three operators:
+
+.. code-block::
+
+    >>> mark = 65
+    >>> mark >= 0 and mark <= 100
+    True
+    >>> mark = 150
+    >>> mark >= 0 and mark <= 100
+    False
+
+Building up expressions like this will become very important later on.
 
 Values and Variables
 ====================
@@ -665,3 +737,4 @@ We can actually write some reasonably useful programs now. The main gap is how t
 .. [#oneway] As we know, Python is intended to have one, and just one, way to do anything. So why have a whole bunch of different types for whole numbers, when one will do? Looking at you, Java.
 .. [#zero] Computer Scientists start counting at zero.
 .. [#spelling] Although obviously your IDE should quickly flag up such spelling issues.
+.. [#bools] Which is fine and, if you think about it, the obvious way of doing it!
