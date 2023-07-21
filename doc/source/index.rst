@@ -12,6 +12,7 @@ Yet Another Python Book
     030_getting_started/index.rst
     040_values_and_data/index.rst
     050_exceptions/index.rst
+    060_control/index.rst
 
 .. raw:: latex
 
