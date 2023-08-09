@@ -18,7 +18,10 @@ Let's illustrate this with a simple programming task:
 
 We could start thinking about this problem along these lines::
 
-    Hmm. We can get the first character of a string at index ``0``, and we can somehow write an ``if`` statement. Maybe we can see if it's between ``A`` and ``Z`` or something. The last character will be index ``-1``, and testing that will be easy.
+    Hmm. We can get the first character of a string at index ``0``, and we
+    can somehow write an ``if`` statement. Maybe we can see if it's
+    between ``A`` and ``Z`` or something. The last character will be index ``-1``,
+    and testing that will be easy.
 
 This is wrong! Looking for uppercase letters, and checking how a string ends sound like they might be common things to need to do. They are. And so *there is a built-in way to quickly and easily do either*. This is always the way do think - does what I am trying to do seem like something that has been done many, many times before?
 
