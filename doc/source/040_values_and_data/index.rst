@@ -528,16 +528,16 @@ More usefully, we can test whether a variable holds a certain value:
 
 Boolean operators allow for comparing values like this. Look again at the overloading of what an equals sign does! Here are the more common ones:
 
-======== ============          ============ ==============
-Operator Meaning               True Example False Example
-======== ============          ============ ==============
-``==``   Is equal to           1 == 1       3 == 2
-``!=``   Not equal to          1 != 0       1 != 1
-``>``    Greater than          3 > 1        1 > 0
-``<``    Less than             1 < 3        0 < 2
-``>=``   Greater or equal to   2 >= 1       2 >= 3
-``<=``   Less than or equal to 1 <= 1       2 <- 0
-======== ============          ============ ==============
+======== =====================          ============ ==============
+Operator Meaning                        True Example False Example
+======== =====================          ============ ==============
+``==``   Is equal to                    1 == 1       3 == 2
+``!=``   Not equal to                   1 != 0       1 != 1
+``>``    Greater than                   3 > 1        1 > 0
+``<``    Less than                      1 < 3        0 < 2
+``>=``   Greater or equal to            2 >= 1       2 >= 3
+``<=``   Less than or equal to          1 <= 1       2 <- 0
+======== =====================          ============ ==============
 
 These examples all use integers. The same operators will work with floating-point numbers, in the obvious way. Integers and floating-point numbers can be compared, but care is needed because of the difficulty of storing floating-point values exactly.
 
