@@ -446,7 +446,7 @@ There has been a lot in this chapter, but we have at least now completed a worki
 #. There can be, and often are, loops within loops, and conditions inside conditions. And loops inside conditions, and so on.
 #. The trick of programming is to split the big problem into smaller problems. And to then repeat, until the problems are small enougn to solve.
 
-Our programs are now going to get complex, at least in the sense that they will be longer. So next we will look at ways to keep the amout of code we are working on to a manageable amount. Say 24 lines or so. Onward!
+Our programs are now going to get complex, at least in the sense that they will be longer. So next we will look at ways to keep the amount of code we are working on to a manageable amount. Say 24 lines or so. Onward!
 
 .. [#tabs] But their use is controversial, and best avoided unless you want to end up in arguments. It's like the dark/light theme in the IDE thing.
 .. [#else] A common misconception among new programmers is, for some reason, that there has to be an ``else``. This is not the case. Really.
