@@ -15,6 +15,7 @@ Yet Another Python Book
     050_exceptions/index.rst
     060_control/index.rst
     070_modules/index.rst
+    080_functions/index.rst
 
 .. raw:: latex
 
@@ -24,4 +25,5 @@ Yet Another Python Book
     :caption: Endmatter:
 
     99_colophon/index.rst
+    990_acknowledgments/index.rst
     999_credits/index.rst
