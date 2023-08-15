@@ -116,7 +116,7 @@ The code to validate one number is straightforward, not least because we have se
         else:
             print('Value out of range. Try again.')
 
-To fix the program, we could just use this code twice. *But we would be repeating ourselves!*. We need to way to put this "chunk" of program somewhere, so that we can use it more than once. That turns out to be easy, but defining a *function*. To do this, we basically just give this code a name, and *def*ine it at the start of the program. And then we can use it twice. The amended program looks like this:
+To fix the program, we could just use this code twice. *But we would be repeating ourselves!*. We need to way to put this "chunk" of program somewhere, so that we can use it more than once. That turns out to be easy, but defining a *function*. To do this, we basically just give this code a name, and define it at the start of the program. And then we can use it twice. The amended program looks like this:
 
 .. literalinclude:: /../../src/08/pythagoras.py
    :language: python
@@ -320,9 +320,200 @@ The grid for the game is 20x20, so we'll follow the usual X and Y axis model. Th
 * Once we have a valid move, we can change the player's position.
 * The whole thing can loop forever. Eventually it will end when the player reaches the treasure.
 
-We *could* write all this in one program, but it will be easier to write some functions. This is especially so as the function to get and validate the move does seem rather like the function we already have to validate the entry of an integer.
+We *could* write all this in one program, but it will be easier to write some functions. This is especially so as the function to get and validate the move does seem rather like the function we already have to validate the entry of an integer. Let's start there.
+
+Tracking the Player
+-------------------
+
+We need a function that allows the user to enter a single character, which must be one of ``N``, ``S``, ``E``, or ``W``. If the user enters anything else, they should learn of their error, and be asked to reenter. The ``in`` operator will come in handy here, and ```len`` will allow its length to be checked. The input is a string, so there is no need for any exceptions. Here we go:
+
+.. code-block::
+
+    def get_direction():
+
+        while True:
+            direction = input('Enter direction to move (N/S/E/W): ')
+            if len(direction) == 1 and direction in 'NSEW':
+                return direction
+            else:
+                print('Error! Enter one of N/S/E/W.')
+
+.. important::
+
+    Glance back up at the code for reading an integer. It is *almost the same*. That's **abstraction**.
+
+Good stuff. Now we need to handle the player moving. If we had a function that accepted their current position and a direction to move, that would do it. The problem is that we plan to store the player's position as two integers, so the function would need to return two things. But it can! Just separate the values with a comma ike this\ [#tuplesagain]_:
+
+.. code-block::
+
+    def move(x, y, direction):
+
+        if direction == 'N':
+            y += 1
+        elif direction == 'S':
+            y -= 1
+        elif direction == 'E':
+            x += 1
+        elif direction == 'W':
+            x -= 1
+
+        return x, y
+
+Should the program check that the direction is valid? In the case of the current program there is no need because we know that the ``get_direction`` function will only ever give a valid direction. Worst case, if the direction in ``move`` was invalid the position would just be unchanged. So we leave it in this case.
+
+.. note::
+
+    The program now has two functions, and it will include more. It is a good idea to include them at the top of the program in roughly the order they are used. Remember to separate them with two blank lines.
+
+Armed with the two functions, the main program is now easy, and short. Which was the whole point!
+
+.. literalinclude:: /../../src/08/treasure_hunt_1.py
+   :language: python
+   :caption: ``treasure_hunt_1.py``
+
+The program is growing (about 40 lines now), but we are only ever working on small sections of it.
+
+Placing the Treasure
+--------------------
+
+Now let's add in the secret location of the treasure. This is a random location, so clearly the ``random`` module will be our friend here. We have decided to ignore the chance that the random location will be where the user starts, so all we need is two random integers, on a scale from 0 to 100. A check in the docs reveals a function called ``randint`` that does that.
+
+Assuming we have the function available via an ``import`` here are two ways to write that function.
+
+.. code-block::
+
+def place_treasure():
+    x_pos = randint(0, 19)
+    y_pos = randint(0, 19)
+
+    return x_pos, y_pos
+
+.. code-block::
+
+def place_treasure():
+    return randint(0, 19), randint(0, 19)
+
+These are equivalent in that they do exactly the same. But the first version "spells out" what it is doing, and is arguably a little clearer because of that. The choice here is largely personal preference, but we'll use the first, as clarity is important. We'll also tweak the main program to report where the treasure is; this will be useful for testing, but would need to be removed if anyone wanted to play the game seriously!
+
+.. literalinclude:: /../../src/08/treasure_hunt_2.py
+   :language: python
+   :emphasize-lines: 3,6-10,42,44
+   :caption: ``treasure_hunt_2.py``
+
+Tracking the Distance
+---------------------
+
+It will add to the excitement if we add in the distance the player is from the treasure. Obviously this will be another function, that will take the two positions as parameters and return the distance between them. A Google will tell us that the required maths is a bit of Pythagoras, suspiciously similar to an example we used earlier. This function is also an example of something that is quite common in many applications, and therefore something that we might have around from some other project. It is also something that it undoubtedly in a package in PyPi, but as it's a one-liner it will be quicker to just code it. That said, we'll keep the identifiers general, in case it does have use elsewhere.
+
+Having said that the function is a one-liner, the brackets are fiddly, so for ease it's been spelled out here.
+
+..note::
+
+    This maths also involves square roots, so the ``math`` module is needed. Remember that when there are several ``import`` statements it is good form to include them alphabetically.
+
+.. literalinclude:: /../../src/08/treasure_hunt_3.py
+   :language: python
+   :emphasize-lines: 3,38-43,57
+   :caption: ``treasure_hunt_3.py``
+
+Now all that is really needed is to determine whether the user has "won".
+
+The Endgame
+-----------
+
+The player wins when they arrive at the treasure. Two ways exist to spot this:
+
+#. The distance between the two will be zero.
+#. The co-ordinates of the two match.
+
+Either would work, but the first relies on floating-point maths. What would happen if the distance was reported as ``0.000001``, for example\ ? [#floats]_ It is therefore better to just compare the positions. If this is done in a function, as obviously it should be, it would also be quick and easy to drop in a version using the other approach.
+
+The new function just needs to take the two positions, and return a Boolean to indicate whether or not they are the same. There is a common "recipe" here. Many functions have a structure along the lines of *if some condition is True, return True, otherwise return False*. In this case, it is just as easy to return the condition. And it saves typing. Compare the two:
+
+.. code-block::
+
+    if player_x == treasure_x and player_y == treasure_y:
+        return True
+    else:
+        return False
+
+which is precisely the same as:
+
+.. code-block::
+
+    return player_x == treasure_x and player_y == treasure_y
+
+The latest version of the program uses the second structure, but uses general identifiers in case the function could be useful elsewhere. The function is used in the main program, which exits once the treasure is found.
+
+
+.. literalinclude:: /../../src/08/treasure_hunt_4.py
+   :language: python
+   :emphasize-lines: 46-47,63-65
+   :caption: ``treasure_hunt_4.py``
+
+Final Tweaks
+------------
+
+We noted two special problems right at the start, which were left to the end. Time to fix them.
+
+The easiest to fix is that the treasure should not be generated right next to the player. A better fix would probably be to say that it has to be a reasonable distance away, so this is a very quick fix indeed by just changing the lower limit of where it can be generated. Our functions help us find the correct spot to make the change quickly, and there it limited risk that we will break anything.
+
+This is also a good moment to note that the dimensions of the game area are actually in the program twice, so we are repeating ourselves. Time to introduce some constants, which will make changing the rules easier in future. Constants are defined below the ``import`` and before the functions. We'll add two, one for the maximum playing area size, and one for the lowest position the treasure can be at.
+
+.. literalinclude:: /../../src/08/treasure_hunt_5.py
+   :language: python
+   :emphasize-lines: 6-7,11-12
+   :caption: ``treasure_hunt_5.py``
+
+The second problem was that the user should not move off the playing area. The constant just defined will be useful here, and it looks as if changes are needed in the ``move`` function. The simplest fix is just to check the new position, and only to return it if it is still on the playing area. Otherwise, an exception will be sent to show that the move it not allowed.
+
+.. important::
+
+    An exception is used because that can be processed in the program. There is no point printing a message, because there might not be anyone to read it!
+
+Finally, the main program deals with the exception. The complete program is below.
+
+.. literalinclude:: /../../src/08/treasure_hunt.py
+   :language: python
+   :caption: ``treasure_hunt.py``
+
+Using Functions
+===============
+
+The final version of the simple game is about 80 lines long. But because it makes use of functions, none of the chunks are code are difficult to manage. The main program is the longest (just on 20 lines), but most of the functions are very short. It shows that functions (and thinking in terms of functions) make the task of constructing a long program much easier.
+
+There is also the advantage that a couple of the functions in this program have been adapted from functions that had already been created in different contexts. This leads neatly into a mention of the possibility of building your own *modules*.
+
+Creating Modules
+----------------
+
+You can create modules of useful, related, functions just by putting them in the same file. You can them ``import`` this file in the same way you would do those from the standard library. It is usually a good idea to include some sample code at the bottom of the file that runs the functions, and acts as a basic test.
+
+.. important::
+
+    A common "gotcha" is to create your own module, and to give it a name that's the same as one from the standard library. A simple workaround is always to prefix module names with ``my_`` or the name of your project or business.
+
+A common use of this is to have a module of *helper functions* that you find useful in your daily programming tasks. A software business might have its own too. These would be functions that have no specific use, but which just generally come in handy in a variety of applications.
+
+Takeaways
+=========
+
+Using functions is an important part of writing code that is DRY. You should always aim to represent everything - every value, every piece of logic - from a problem **exactly once**. That way there is a good chance the representation is correct and, if not, a fix can be applied in one place.
+
+Programming is a process of breaking down an overall problem into smaller chunks. These chunks eventually become easy to solve and work with, and correspond to functions.
+
+Specifically:
+
+* Breaking down a problem into functions results in programs that are easier to write, and easier to maintain.
+* Programs need to be read and understood. Good use of functions, with clear naming, helps with this.
+* Python functions are defined at the top of a program. They take parameters to alter the way that they work, or the result they produce.
+* Functions can either be specific to a particular problem, or can be more general. If the latter, they can be written using more generic naming.
+
+Finally, never be tempted to write a long, long program with the intention of "turning it into functions" later. It is insanely difficult. The whole point of using functions is to keep the amount of code currently holding your attention to a reasonable amount. Don't take on misguided approaches that will make your life so very miserable.
 
 .. [#return] "Usually", because a function could just be a bunch of ``print`` statements. Even if a function just does some action (like opening a network connection, say) it usually returns a value to indicate whether or not it was successful.
 .. [#names] Choosing function names carefully can often mean that lines of program can be read, and that reading them explains what they do. This can eliminate the need for any other tedious way of explaining or documenting the code.
 .. [#refactor] Either way to write this is fine. Some programmers prefer to always have the ``return`` as the last line. Some go further and say there should only ever be one ``return``. We take the view here that anything is fine, as long as it is used consistently, and as long as the resulting code is clear.
 .. [#tuples] There is only one place where this really becomes a pain. See if you can spot it.
+.. [#tuplesagain] There is something going on behind the scenes here, but there is no need to worry about it. We can just treat it as being able to return two values from our function.
+.. [#floats] In practice, a program should never check that a floating-point value is *exactly* zero. It should check that the value is less than, say, ``0.0000001`` and treat that as zero. For the same reason, never compare two floating-point values for equality.
