@@ -26,7 +26,7 @@ Install the following, ideally in a `venv`. See also the `requirements.txt` in t
 ``$ pip install sphinx-book-theme`` \
 ``$ pip install sphinx-copybutton``
 
-The following packages are needed for PDf output on Ubuntu/Mint/Debian. The list could probably be trimmed if different fonts were used.
+The following packages are needed for PDF output on Ubuntu/Mint/Debian. The list could probably be trimmed if different fonts were used.
 
 ``$ apt install texlive-latex-base`` \
 ``$ apt install texlive-latex-extra`` \
