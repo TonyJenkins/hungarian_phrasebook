@@ -576,6 +576,21 @@ These operators can be combined with the Boolean operators to give complex expre
 
 Building up expressions like this will become very important later on.
 
+A final operator is worth a mention here. The ``in`` operator gives a Boolean value depending on whether or not one value is contain inside another. This is often used with strings:
+
+.. code-block::
+
+    >>> 's' in 'spam'
+    True
+    >>> 's' in 'eggs'
+    True
+    >>> 'spam' in 'fritters'
+    False
+
+This is really just a shorthand for a whole bunch of ``and`` tests together, but it can be useful. It also has the happy side-effect of making code more readable.
+
+Now, let's try and formalise what this chapter has discussed.
+
 Values and Variables
 ====================
 
