@@ -22,42 +22,52 @@ Code is Crafted
 
 A common saying these days is that programming is a *craft*. This means many things, but essentially it tells us that programming is all about producing good, elegant solutions, that can be maintained and repaired, and that will work for a long time. It is not enough for a program to work - it must work well. Or, if you prefer, it should be *crafted*.
 
-Think about a craftsperson making a chair. A chair can be made by nailing a few pieces of wood together, and screwing some legs on. But that would not produce a good chair. A good chair simply looks good. It is well made, and we will be happy to have it in our homes. We would expect a good chair to be used for a long time, and we would expect to be able to repair it.
+Think about a craftsperson making a chair. A chair can be made by nailing a few pieces of wood together, and screwing some legs on. But that would not produce a good chair. A good chair has to fulfill its basic function, but is also needs to looks good. If it is well made, and we will be happy to have it in our homes. We would expect a good chair to be used for a long time, and we would expect to be able to repair it. We would expect it to have been well made, or *crafted*.
+
+.. note::
+
+    A while back, we used to say that software (programs) was *engineered*. And there was a whole discipline called *Software Engineering* and people called *Software Engineers*. It's still a reasonable reference - good programs are built and structured well in a similar way to complex machines - but it does seem to have fallen out of fashion.
 
 Here are some ideas that help us think about what makes code good, or indeed *crafted*.
 
 Code is Read
 ************
 
-Code is read much more than it is written. Good code should be readable, so that a programmer who is not the original author can quickly and easily see what it does, and how it does it. This means that good code:
+Code is read much more than it is written. This implies that good code should be readable, so that a programmer who is not the original author can quickly and easily see what it does, and how it does it. This means that good code:
 
-* Follows all the conventions of programming in that language.
+* Follows all the conventions adopted by those skilled in programming in that language.
 * Uses meaningful identifiers for all variables and constants.
-* Does not rely on "neat tricks" or anything that obfuscates what is going on.
+* Does not rely on "neat tricks" or anything that obfuscates what is going on. Simplicity is best.
+* Breaks the problem down into small chunks that are easy to understand, and which help isolate what might need to be changed.
 
 Remember also that the programmer reading the code might still be the original author, a few years down the line!
 
 Programming is a Team Effort
 ****************************
 
-Anything other than the simplest programs is developed by teams of programmers. So there needs to be a way to split the work. If a program is held in one single monolithic file, it is impossible for several programmers to work on it together. So splitting the work up is vital.
+Anything other than the simplest programs is developed by teams of programmers. So there needs to be a way to split the work. Specifically:
+
+* If a program is held in one single monolithic file, it is impossible for several programmers to work on it together. So splitting the work up is vital.
+* If a program is held in a single file, on a single server, it will be difficult for programmers working in different locations to collaborate.
+* In a complex program, it is unlikely that any one programmer will know how every single aspect works. So there needs to be a way to isolate parts of the program, for attention from certain programmers.
 
 .. important::
 
-    This short statement introduces the need for *source code control*. More on this at the end of the book.
+    The issues here introduce the need for *source code control*. More on this at the end of the book.
 
 Multi-tasking is Difficult
 **************************
 
-Do you find it difficult to do 7 things at once? Probably.
+Do you find it difficult to do seven things at once? Probably.
 
-A program that does 7 things is difficult to write, for the same reason. It is difficult to keep track of what should be doing what, and how that affects other things.
+A single program that does seven things is difficult to write, for the same reason. It is difficult to keep track of what should be doing what, and how that affects other things.
 
-Splitting the program into smaller chunks can remove this problem. The key idea is that each "chunk" does exactly one thing. This means:
+Splitting the program into smaller chunks can resolve this problem. The key idea is that each "chunk" does exactly one thing. This means:
 
 * That the code to be worked on will be shorter.
 * Programmers can work on one chunk each, and later combine them.
-* If the code has to do one thing, the chances are it will do that thing!
+* If the code has to do one thing, the chances are it will do that thing properly!
+* And as the code does only one thing, it is relatively easy to test.
 * If the code turns out to be incorrect, it is obvious where the fix needs to be.
 
 This idea leads up to the most important concept here - DRY Code (and WET Code).
@@ -67,13 +77,9 @@ Don't Repeat Yourself
 
 Once you have some program code that solves a problem it makes sense to keep using it wherever it can be used. This is, of course, the basic idea of *abstraction*, or taking a solution to one problem and using it elsewhere. For example, if a program requires a user to enter an integer value ten times, why write the code for that out ten times? Why not write it the once, and then "call" it whenever needed?
 
-This idea exists in many areas of Computing. Do something once, or save a data item once, and that becomes the definitive version. Once you have this version, use it wherever needed. The score is that you have recorded this one aspect of the system once, and in one place. It would need to change it for some reason, just change it once.
+This idea exists in many areas of Computing\ [#databases]_. Do something once, or save a data item once, and that becomes the definitive version. Once you have this version, use it wherever it's needed. The score is that you have recorded this one aspect of the system once, and in one place. If you need to change it for some reason, just change it once.
 
-.. seealso::
-
-    An important idea in databases is to store everything about the problem once. Then if you need to change it, you change one thing. You *represent everything in the real world once*.
-
-This gives us the idea of DRY code, which is good code.
+This gives us the idea of DRY code\ [#pragmatic]_, which is good code.
 
 .. important::
 
@@ -215,7 +221,7 @@ All is well, but the function doesn't do any error checking. If the value passed
 
 .. note::
 
-    Functions can also generate their own exceptions. We'll do an example shortly.
+    Functions can also generate their own exceptions. We'll do an example shortly. (In the jargon, we say that a function can *throw* an exception).
 
 This function had just the one parameter, but in general functions can have any number. In this case, they need to be supplied in the expected order. To illustrate this, let's *generalise* our function for reading an integer. We'll create a version that takes three parameters:
 
@@ -248,6 +254,10 @@ As usual, we try to use identifiers that show what is going on. In the main body
             except ValueError:
                 print('Please enter an integer!')
 
+.. note::
+
+    Using the ``return`` and not a ``break`` is maybe a little controversial. There could be an argument that the ``return`` is a bit hidden away when written like this. Some programmers would prefer the ``return`` to be the last statement in a function. Your call. Either is fine.
+
 This function can be called from anywhere else, with the call providing two integers, and a string, in that order:
 
 .. code-block::
@@ -255,9 +265,13 @@ This function can be called from anywhere else, with the call providing two inte
     sides = read_int_with_limits(1, 100, 'Enter the number of sides: ')
     players = read_int_with_limits(1, 6, 'How many players? ')
 
-Finally, we have a problem if there is an error when the function is called, and the second number is lower than the first. The function would fall into an infinite loop, because there is no value between the two. What to do?
+.. note::
 
-There is *absolutely no point* printing out an error. It does not help to tell the program's user that the *programmer* has made an error. The correct thing to do is to ``raise`` an exception to indicate to whatever is calling the function that some dreadful has happened, and the function cannot do its work. In fact, we can simply use an existing exception - ``ValueError`` looks a good one - and throw this back.
+    These calls show that there has to be a space on the end of the prompt if we are going to get a neat dialogue. Seeing this, maybe we should go back to the function and refactor it again to take the prompt without a space, but to add one in as it is displayed?
+
+We have a problem if there is an error when the function is called, and the second number is lower than the first. By checking over the code we can deduce that the function would fall into an infinite loop, because there is no value between the two. What to do?
+
+There is *absolutely no point* printing out an error. It does not help to tell the program's user that the *programmer* has made an error. The correct thing to do is to ``raise`` an exception to indicate to whatever is calling the function that something dreadful has happened, and the function cannot do its work. The problem here is with the values provided to the function, so we can simply use an existing exception - ``ValueError`` looks a good one - and throw this back.
 
 .. code-block::
 
@@ -277,9 +291,9 @@ There is *absolutely no point* printing out an error. It does not help to tell t
             except ValueError:
                 print('Please enter an integer!')
 
-Here ``raise`` terminates the function and passes everything back to the caller. There should be code there that handles the exception, and does something sensible.
+Here ``raise`` terminates the function and passes everything back to the caller. There should be code there that handles the exception, and does something sensible. In general, using an exception like this informs whatever is using the function that it was unable to do its work, and was in a state where there was no point carrying on.
 
-Let's finish this chapter with an example program that makes serious use of functions.
+Right. Let's finish this chapter with an example program that makes serious use of functions.
 
 A Simple Game
 =============
@@ -288,23 +302,23 @@ A Simple Game
 
     A game is played on a 20x20 grid. There is some buried treasure at a random location. The player starts at the bottom left, and can move north, south, east, or west. After every move, they are told how far they are from the treasure.
 
-    The game is simply for the player to move to the treasure in as few moves as possible.
+    The aim is simply for the player to move to the treasure in as few moves as possible.
 
 There are many ways to implement this simple game. What follows is just one example. It has been chosen so that it covers all the ideas from this chapter. (And it would also be easier if we could use some of the ideas in the next, but we are where we are\ [#tuples]_.)
 
 Let's go.
 
 Thinking It Through
--------------------
+*******************
 
 Programming works like this. We have a problem, so now we start breaking the problem down into smaller problems. We can immediately see some of the problems we will have to crack:
 
 * We will need to know the player's current position.
 * We will need to randomly generate a location for the treasure.
-* We will need to work out the distance between the two.
+* We will need to work out the distance between the player and the treasure.
 * The program will need to ask for the player's move, and terminate once they are at the treasure.
 
-We cam see that it will be possible to detect that the player is at the treasure because the distance from it will be zero.
+We can see that it will be possible to detect that the player is at the treasure because the distance from it will be zero. Or there might be another way to do this.
 
 Thinking more about the problem we might spot a couple of issues that will complicate things:
 
@@ -313,19 +327,25 @@ Thinking more about the problem we might spot a couple of issues that will compl
 
 We are going to need to fix these, sure, but they are fine examples of the sort of issue we might (and will) decide to ignore for the moment. We will get a basic version working, and come back to these details later. Our basic version can just track the player around the grid, not worrying about limits.
 
+.. important::
+
+    If something in a program looks tricky, it is often a good idea to pretend it isn't there, and to sort it once everything else is working properly.
+
 The grid for the game is 20x20, so we'll follow the usual X and Y axis model. The X-axis goes from 0 to 19 across, and the Y from 0 to 19 up. Remember that we should count from 0! For this first version, we can now think:
 
 * We need two integers for the player's position, one for the X position (across) and one for Y (up).
-* The user needs to enter their move (N/S/E/W will do). That needs to be validated.
+* The user needs to enter their move (a choice from N/S/E/W will do). That needs to be validated.
 * Once we have a valid move, we can change the player's position.
 * The whole thing can loop forever. Eventually it will end when the player reaches the treasure.
 
-We *could* write all this in one program, but it will be easier to write some functions. This is especially so as the function to get and validate the move does seem rather like the function we already have to validate the entry of an integer. Let's start there.
+We have now thought out the problem. Above we have a basic *algorithm*, which is the way the program will work. We also have some promising ideas of how to represent the real world as data.
+
+We *could* write all this in one program, but **it will be easier to write some functions**. This is especially so as the function to get and validate the move does seem rather like the function we already have up above to validate the entry of an integer. Let's start there.
 
 Tracking the Player
--------------------
+*******************
 
-We need a function that allows the user to enter a single character, which must be one of ``N``, ``S``, ``E``, or ``W``. If the user enters anything else, they should learn of their error, and be asked to reenter. The ``in`` operator will come in handy here, and ```len`` will allow its length to be checked. The input is a string, so there is no need for any exceptions. Here we go:
+We need a function that allows the user to enter a single character, which must be one of ``N``, ``S``, ``E``, or ``W``. If the user enters anything else, they should learn of their error, and be asked to reenter. The ``in`` operator will come in handy here, and ``len`` will allow its length to be checked. The input is a string, so there is no need for any exceptions. Here we go:
 
 .. code-block::
 
@@ -342,7 +362,7 @@ We need a function that allows the user to enter a single character, which must 
 
     Glance back up at the code for reading an integer. It is *almost the same*. That's **abstraction**.
 
-Good stuff. Now we need to handle the player moving. If we had a function that accepted their current position and a direction to move, that would do it. The problem is that we plan to store the player's position as two integers, so the function would need to return two things. But it can! Just separate the values with a comma ike this\ [#tuplesagain]_:
+Good stuff. Now we need to handle the player moving. If we had a function that accepted their current position and a direction to move, that would do it. The problem is that we plan to store the player's position as two integers (one for ``x``, one for ``y``), so the function would need to return two things. But it can! Just separate the values with a comma like this\ [#tuplesagain]_:
 
 .. code-block::
 
@@ -374,26 +394,32 @@ Armed with the two functions, the main program is now easy, and short. Which was
 The program is growing (about 40 lines now), but we are only ever working on small sections of it.
 
 Placing the Treasure
---------------------
+********************
 
-Now let's add in the secret location of the treasure. This is a random location, so clearly the ``random`` module will be our friend here. We have decided to ignore the chance that the random location will be where the user starts, so all we need is two random integers, on a scale from 0 to 100. A check in the docs reveals a function called ``randint`` that does that.
+Now let's add in the secret location of the treasure. This is a random location, so clearly the ``random`` module will be our friend here. We have decided to ignore (for the moment) the chance that the random location will be where the user starts, so all we need is two random integers, on a scale from 0 to 19, inclusive. A check in the docs reveals a function called ``randint`` that does that.
 
 Assuming we have the function available via an ``import`` here are two ways to write that function.
 
 .. code-block::
 
-def place_treasure():
-    x_pos = randint(0, 19)
-    y_pos = randint(0, 19)
+    def place_treasure():
+        x_pos = randint(0, 19)
+        y_pos = randint(0, 19)
 
-    return x_pos, y_pos
+        return x_pos, y_pos
 
 .. code-block::
 
-def place_treasure():
-    return randint(0, 19), randint(0, 19)
+    def place_treasure():
+        return randint(0, 19), randint(0, 19)
 
 These are equivalent in that they do exactly the same. But the first version "spells out" what it is doing, and is arguably a little clearer because of that. The choice here is largely personal preference, but we'll use the first, as clarity is important. We'll also tweak the main program to report where the treasure is; this will be useful for testing, but would need to be removed if anyone wanted to play the game seriously!
+
+.. note::
+
+    A common passtime among programmers is to try and write complex things in one line. This is fine as an intellectual exercise, and can while away the long winter evenings, but *clarity in code in important*. So sometimes it is better to use longer code, just to make sure that everything is clear.
+
+Here's the program as it now is, with the new lines marked:
 
 .. literalinclude:: /../../src/08/treasure_hunt_2.py
    :language: python
@@ -401,13 +427,13 @@ These are equivalent in that they do exactly the same. But the first version "sp
    :caption: ``treasure_hunt_2.py``
 
 Tracking the Distance
----------------------
+*********************
 
 It will add to the excitement if we add in the distance the player is from the treasure. Obviously this will be another function, that will take the two positions as parameters and return the distance between them. A Google will tell us that the required maths is a bit of Pythagoras, suspiciously similar to an example we used earlier. This function is also an example of something that is quite common in many applications, and therefore something that we might have around from some other project. It is also something that it undoubtedly in a package in PyPi, but as it's a one-liner it will be quicker to just code it. That said, we'll keep the identifiers general, in case it does have use elsewhere.
 
-Having said that the function is a one-liner, the brackets are fiddly, so for ease it's been spelled out here.
+Having said that the function is a one-liner, the brackets turn out to be fiddly, so for ease and clarity it's been spelled out here.
 
-..note::
+.. note::
 
     This maths also involves square roots, so the ``math`` module is needed. Remember that when there are several ``import`` statements it is good form to include them alphabetically.
 
@@ -419,7 +445,7 @@ Having said that the function is a one-liner, the brackets are fiddly, so for ea
 Now all that is really needed is to determine whether the user has "won".
 
 The Endgame
------------
+***********
 
 The player wins when they arrive at the treasure. Two ways exist to spot this:
 
@@ -443,8 +469,9 @@ which is precisely the same as:
 
     return player_x == treasure_x and player_y == treasure_y
 
-The latest version of the program uses the second structure, but uses general identifiers in case the function could be useful elsewhere. The function is used in the main program, which exits once the treasure is found.
+This is a case where spelling things out doesn't really add anything. The single line is fine, and would be understood by anyone reading the program. (You might even find that your IDE would highlight the first version above as an "error" and offer to fix it to the second.)
 
+The latest version of the program uses the second structure, but uses general identifiers in case the function could be useful elsewhere. The function is used in the main program, which exits once the treasure is found.
 
 .. literalinclude:: /../../src/08/treasure_hunt_4.py
    :language: python
@@ -452,13 +479,13 @@ The latest version of the program uses the second structure, but uses general id
    :caption: ``treasure_hunt_4.py``
 
 Final Tweaks
-------------
+************
 
 We noted two special problems right at the start, which were left to the end. Time to fix them.
 
 The easiest to fix is that the treasure should not be generated right next to the player. A better fix would probably be to say that it has to be a reasonable distance away, so this is a very quick fix indeed by just changing the lower limit of where it can be generated. Our functions help us find the correct spot to make the change quickly, and there it limited risk that we will break anything.
 
-This is also a good moment to note that the dimensions of the game area are actually in the program twice, so we are repeating ourselves. Time to introduce some constants, which will make changing the rules easier in future. Constants are defined below the ``import`` and before the functions. We'll add two, one for the maximum playing area size, and one for the lowest position the treasure can be at.
+This is also a good moment to note that the dimensions of the game area are actually defined in the program twice, so (assuming a square playing area) we are repeating ourselves. Time to introduce some constants, which will make changing the rules easier in future. Constants are defined below the ``import`` and before the functions. We'll add two, one for the maximum playing area size, and one for the lowest position the treasure can be at.
 
 .. literalinclude:: /../../src/08/treasure_hunt_5.py
    :language: python
@@ -477,21 +504,23 @@ Finally, the main program deals with the exception. The complete program is belo
    :language: python
    :caption: ``treasure_hunt.py``
 
+Looking very closely at the ``move`` function, it could be argued that it is now doing two things. It is moving the player, *and* checking whether they are still in the allowed area. Maybe there should be a separate function to do the second part? Decisions like this crop up all the time - for the moment there is no serious reason to change things, but refactoring might be needed in the future.
+
 Using Functions
 ===============
 
-The final version of the simple game is about 80 lines long. But because it makes use of functions, none of the chunks are code are difficult to manage. The main program is the longest (just on 20 lines), but most of the functions are very short. It shows that functions (and thinking in terms of functions) make the task of constructing a long program much easier.
+The final version of the simple game is about 80 lines long. But because it makes use of functions, none of the chunks of code are difficult to manage. The main program is the longest (just on 20 lines), but most of the functions are very short. It shows that functions (and thinking in terms of functions) make the task of constructing a long program much easier.
 
-There is also the advantage that a couple of the functions in this program have been adapted from functions that had already been created in different contexts. This leads neatly into a mention of the possibility of building your own *modules*.
+There is also the advantage that a couple of the functions in this program have been adapted from functions that had already been created in different contexts. And some of them could be useful if we were asked to write similar games. This leads neatly into a mention of the possibility of building your own *modules*.
 
 Creating Modules
-----------------
+****************
 
-You can create modules of useful, related, functions just by putting them in the same file. You can them ``import`` this file in the same way you would do those from the standard library. It is usually a good idea to include some sample code at the bottom of the file that runs the functions, and acts as a basic test.
+You can create modules of useful, related, functions just by putting them in the same file. You can then ``import`` this file in the same way you would do those from the standard library. It is usually a good idea to include some sample code at the bottom of the file that runs the functions, and acts as a basic test. Python will search for modules according to a defined list of possible locations; one of these is the same folder as the program with the ``import``, which is therefore usually the easiest place to store the file!
 
 .. important::
 
-    A common "gotcha" is to create your own module, and to give it a name that's the same as one from the standard library. A simple workaround is always to prefix module names with ``my_`` or the name of your project or business.
+    A common "gotcha" is to create your own module, and to give it a name that's the same as one from the standard library. Python sees your version first, so you effectvely hide the standard one. A simple workaround is always to prefix module names with ``my_`` or the name of your project or business.
 
 A common use of this is to have a module of *helper functions* that you find useful in your daily programming tasks. A software business might have its own too. These would be functions that have no specific use, but which just generally come in handy in a variety of applications.
 
@@ -517,3 +546,5 @@ Finally, never be tempted to write a long, long program with the intention of "t
 .. [#tuples] There is only one place where this really becomes a pain. See if you can spot it.
 .. [#tuplesagain] There is something going on behind the scenes here, but there is no need to worry about it. We can just treat it as being able to return two values from our function.
 .. [#floats] In practice, a program should never check that a floating-point value is *exactly* zero. It should check that the value is less than, say, ``0.0000001`` and treat that as zero. For the same reason, never compare two floating-point values for equality.
+.. [#databases] Especially in databases, where the single most important idea is that a database should store every fact about its world *exactly once*.
+.. [#pragmatic] See *The Pragmatic Programmer* by Dave Thomas and Andrew Hunt (Pragmatic Bookshelf, 2019).
