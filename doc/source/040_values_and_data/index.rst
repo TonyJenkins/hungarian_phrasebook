@@ -1,6 +1,6 @@
-===============
-Values and Data
-===============
+==================
+Somewhere to Start
+==================
 
 The time has come to create a program, and also to understand how it works. So in this chapter we will look at the three building blocks we need:
 
