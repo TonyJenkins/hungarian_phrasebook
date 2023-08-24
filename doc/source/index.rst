@@ -16,6 +16,7 @@ Yet Another Python Book
     060_control/index.rst
     070_modules/index.rst
     080_functions/index.rst
+    090_collections/index.rst
 
 .. raw:: latex
 
