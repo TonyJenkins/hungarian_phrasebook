@@ -102,8 +102,95 @@ Sorry.
 None
 ****
 
-..
-    TODO
+Any book on programming will at some point provide a list of the built-in *primitive* data types available. As we know, the list varies between languages but usually includes:
+
+* Whole numbers, called integers.
+* Numbers with a fractional part, called floating-point numbers.
+* Strings, with a single character string possibly being a special case.
+
+Modern languages usually also include a Boolean type, while older languages might just use integers for that. Some languages offer more specific types, for example integers that cannot be negative, or integers that occupy a specific amount of memory.
+
+Python keeps it simple, so way back, we said that these were the four types in Python:
+
+* ``int``, an integer.
+* ``float``, a number with a fractional part.
+* ``str``, a string, which can have any number of characters,
+* ``bool``, a Boolean.
+
+This was not strictly true. There is a fifth type. It's called ``None`` or more accurately ``NoneType``\ [#none]_.
+
+The need for this arises from a particular problem. Python determines a variable's type from the value it is given when it is created, but *what happens if we want a variable that has no initial value*? Such a variable has no value, so no type, so it can be given ``NoneType``.
+
+It can be assigned deliberately, like this:
+
+.. code-block::
+
+    >>> spam = None
+    >>> type(spam)
+    <class 'NoneType'>
+
+And we can test whether the variable currently has an interesting value:
+
+.. code-block::
+
+    >>> not spam
+    True
+
+So at the moment ``spam`` has no useful value. Let's give it one:
+
+.. code-block::
+
+    >>> spam = 1
+    >>> not(spam)
+    False
+
+This all seems a bit abstract, so let's have an example where this might be useful. Suppose we have a function that finds a value in a list. It takes two parameters, the list and a number to search for, and returns where the number is in the list. There is a built-in function called ``index`` that will do most of the heavy lifting, so we get something like:
+
+.. code-block::
+
+    def find_number(list_of_numbers, number):
+        return list_of_numbers.index(number)
+
+This is fine and we could use it like this to look for a number, say ``12``:
+
+.. code-block::
+
+    position = find_number(all_numbers, 12)
+
+But what happens if the number cannot be found? The ``index`` function will throw an exception. This could be handled in the program using the function, but it *can be neater* to return ``None`` to say the value was not found. The function becomes:
+
+.. code-block::
+
+    def find_number(list_of_numbers, number):
+        try:
+            return list_of_numbers.index(number)
+        except ValueError:
+            return None
+
+This is neater because this function now *always returns a value*, so there is no need to worry about exceptions when using it. So the code using the function can simply be:
+
+.. code-block::
+
+    position = find_number(all_numbers, 12)
+    if position:
+        print('Value Found')
+    else:
+        print('Value not found')
+
+This is a neatness, but it does often improve the readability of code.
+
+.. note::
+
+    Somewhat related to this is a common structure in Python where we need to check if, say, a list is empty, or a string variable contains no characters. The Boolean ``not`` comes in handy:
+
+    .. code-block::
+
+        >>> s = ''
+        >>> not s
+        True
+        >>> l = []
+        >>> not l
+        True
 
 Passing
 *******
@@ -196,3 +283,5 @@ Takeaways
 
 ..
     TODO
+
+.. [#none] This is *still* not strictly true. ``None`` isn't really a type, it's an object, and there is only one of them. See the docs if you really need to know!
