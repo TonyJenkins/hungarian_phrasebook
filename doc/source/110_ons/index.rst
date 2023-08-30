@@ -20,6 +20,52 @@ None
 ..
     TODO
 
+Passing
+*******
+
+This might seem a little odd, but there is a statement in Python that does nothing. Ever. Nothing, nada, zilch. It's needed because of Python's reliance on indentation to show what statements are in which block. Look at this line of code:
+
+.. code-block::
+
+    if number_entered == 1:
+
+The syntax of Python *requires* that there is a statement on the following line. If there isn't, that is an error, and the program will fail to run. In some other languages you could just use an empty pair of brackets or some such to show that there's nothing there, but the indentation in Python means that this won't work.
+
+So there is a need for a statement that does nothing! This might be because there is nothing to do aside from declaring something (see *Custom Exceptions*), oe because the programmer needs a placeholder, or because explicitly saying nothing needs to be done improves the readability of the code.
+
+All of these are the job of the ``pass`` statement. So in the code above, we could have this, which is valid Python:
+
+.. code-block::
+
+    if number_entered == 1:
+        pass
+
+Another common use is when writing functions. Quite often you need to write the function header, and want to work on the code that uses it. You will write the function body later. So you use ``pass`` as a placeholder:
+
+.. code-block::
+
+    def useful_function():
+        pass
+
+This satisfies the syntax, and stops your IDE generating errors. The code will also run, although obviously it will do nothing.
+
+Finally, a less common use is when you explicitly want to say that nothing should happen. This is obviously irrelevant to Python, but could help someone reading the code. For example, suppose some code wanted to ignore every value in a certain range. We could write this, reasoning that just to ignore the range would look odd:
+
+.. code-block::
+
+    if number_entered == 1:
+        print('One')
+    elif number_entered == 6:
+        print('Six')
+    else:
+        pass
+
+The score here is that we are *explicitly* ignoring other values.
+
+.. hint::
+
+    If you use your IDE to create template code for functions, you may well find that it adds a ``pass`` statement in to make the code valid.
+
 Custom Exceptions
 *****************
 
