@@ -287,6 +287,6 @@ There is really only one takeaway here, and that is that a programmer never stop
 
 Much the same applies to any language you may come to use in the future. Languages like Java and PHP have communities and continue to develop too. Even languages with stronger ties to particular companies, like C# as an example, develop, even if they are guided in a somewhat different way.
 
-So, take away that there is plenty more to learn. Look at code written by others, check the many tutorials available online, and, if you wanr to, keep up to date with new developments in Python.
+So, take away that there is plenty more to learn. Look at code written by others, check the many tutorials available online, and, if you want to, keep up to date with new developments in Python.
 
 .. [#none] This is *still* not strictly true. ``None`` isn't really a type, it's an object, and there is only one of them. See the docs if you really need to know!
