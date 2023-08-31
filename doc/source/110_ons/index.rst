@@ -275,8 +275,89 @@ That's all there is to it. Remember that the name of the exception provides a ge
 List Comprehensions
 *******************
 
-..
-    TODO
+Lists are a very powerful collection data type. In fact, to be honest, lists are the *only* collection type you really need to know. They tend to be used in similar ways in many programs, and often appear in similarly structured code. Typically there is a ``for`` loop, that does something to each item in a list, or adds values to a list depending on some condition. As an example, suppose we have a list of marks, and we want to build another list containing just the fails (less than 40, say). The code might be something along the lines of:
+
+.. code-block::
+
+    fail_marks = []
+
+    for mark in all_marks:
+        if mark < 40:
+            fail_marks.append(mark)
+
+Or suppose we have a name like ``Arthur James Wensleydale``, and want to extract the capital letters. These would represent the initials, and could be useful. We would code:
+
+.. code-block::
+
+    initials = ''
+
+    for letter in full_name:
+        if letter.isupper():
+            initials += letter
+
+This looks quite different, but is the same structure. Both these code samples initialise a variable, and then add to it as they examine each element of something else in turn. There are no lists in the second example, but there is what Python calls an *iterable*, and that means they are basically the same thing.
+
+These are cases where *list comprehensions* come in useful. As with some of the other topics in this chapter there is never a case where you **must** use these, but they can lead to neater code.
+
+.. important::
+
+    Remember that good code values clarity over neat tricks. List comprehensions are close to being neat tricks, and can lead to temptation to try to create nifty one-liners.
+
+    Always look at your code with an eye on readability and clarity!
+
+A list comprehension takes one list, and produces another, based on some condition. Rather than describe the syntax, here is an example that would create a list of all even integers less than 20:
+
+.. code-block::
+
+    >>> evens = [x for x in range(20) if x % 2 == 0]
+    >>> evens
+    [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+
+We can read this as ``evens`` is a list including all values in ``range(20)`` where that value ``%`` 2 is 0 (so it is even).
+
+Compare this with that same code written out "long hand", and you'll see the point:
+
+.. code-block::
+
+    evens = []
+    for x in range(20):
+        if x % 2 == 0:
+            evens.append(x)
+
+In fact, you can see the code for the comprehension in that sample.
+
+That's all there is to it. We can rewrite our first example using a comprehension, so this:
+
+.. code-block::
+
+    fail_marks = []
+
+    for mark in all_marks:
+        if mark < 40:
+            fail_marks.append(mark)
+
+becomes the substantially neater:
+
+.. code-block::
+
+    fail_marks= [mark for marks in all_marks if mark < 40]
+
+But what of that string example, where we were looking through a name? The trick here is to build a list of the initial letters, and then to convert that list back to a string. Seems over complicated, but the code is rather neat. First build the list:
+
+.. code-block::
+
+    initials = [letter for letter in full_name if letter.isupper()]
+
+And then we can use the ``join`` function, that takes a list and joins the elements together with the given separator. Here the separator is nothing:
+
+.. code-block::
+
+    initials = ''.join([letter for letter in full_name if letter.isupper()])
+
+Again, this is very neat.
+
+Using list comprehensions like this is very common, and is seen as Pythonic. So although it might look like a neat trick it is safe to assume that any experienced programmer will understand. Try them in your next project!
 
 Takeaways
 *********
