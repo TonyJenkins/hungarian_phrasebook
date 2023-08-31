@@ -46,7 +46,7 @@ Now, look closely at this line of the program:
    :emphasize-lines: 7
    :caption: ``school_bus.py``
 
-It does quite a lot. It displays a prompt, reads the user's input, converts the string entered to an integer (``input`` always reads a string), and assigns the result to a variable. All good, but what would happen if the user entered a value that could not be converted into an integer? Thw quickest thing to do it to try it and see by entering ``lots`` instead of a number:
+It does quite a lot. It displays a prompt, reads the user's input, converts the string entered to an integer (``input`` always reads a string), and assigns the result to a variable. All good, but what would happen if the user entered a value that could not be converted into an integer? The quickest thing to do it to try it and see by entering ``lots`` instead of a number:
 
 .. code-block::
 
