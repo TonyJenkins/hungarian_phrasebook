@@ -118,7 +118,7 @@ To modify the program to deal with different bus sizes, we are going to need to 
 
 So now we have:
 
-.. literalinclude:: /../../src/05/school_bus_exception.py
+.. literalinclude:: /../../src/05/school_bus_capacity.py
    :language: python
    :caption: ``school_bus.py``
 
