@@ -63,15 +63,15 @@ Handling an Exception
 
 This error is correctly called an *Exception*, because it represents an exception to what should have happened. Python is unable to continue with the program but, before all is lost, it is giving us two things:
 
-#. An exception type, that indicates in general terms what has happened. Here is is ``ValueError``.
+#. An exception type, that indicates in general terms what has happened. Here it is ``ValueError``, so we know it is a problem with a value that Python has tried to process.
 #. A message that contains a hint of what Python believes has gone wrong. Here, the literal value entered is invalid.
 
-There are to approaches to tackling this error:
+There are to approaches to modifying the program so that it can handle this error:
 
-#. We could examine the string entered, determine whether it will convert to an integer, and carry on if it looks fine.
+#. We could write code that would examine the string entered, determine whether it will convert to an integer, and carry on if it looks fine, printing an error otherwise.
 #. We could convert the string entered, whatever it is, and deal with any error that might happen.
 
-The first of these is called **Look Before You Leap** (LBYL) and is a common approach in many older languages. It can lead to complex programs, where it can be difficult to see what is *supposed* to happen.
+The first of these approaches is called **Look Before You Leap** (LBYL) and is a common approach in many older languages. It can lead to complex programs, where all the error-checking can make it difficult to see what is *supposed* to happen.
 
 The second is EAFP, or **Easier to Ask Forgiveness than Permission**. This is a more modern approach, and is common in most newer languages. It tends to keep code that deals with errors all in one place, leaving what should happen alone.
 
@@ -81,14 +81,14 @@ The second is EAFP, or **Easier to Ask Forgiveness than Permission**. This is a 
 
     We aim to be *Pythonic* here, so EAFP is what we will use.
 
-Provided we know what exception might happen, it is easy to amend the code. In this example we are concerned about a ``ValueError``. So all we need to do is tell Python what to do if such an error happens. It looks like this (changes are highlighted):
+Provided we know what exception might happen, it is easy to amend the code. In this example we know that we are concerned about the possibility of a ``ValueError``. So all we need to do is tell Python what to do if such an error happens. It looks like this (changes are highlighted):
 
 .. literalinclude:: /../../src/05/school_bus_exception.py
    :language: python
    :emphasize-lines: 7, 16-17
    :caption: ``school_bus.py``
 
-So we ``try`` to do what is expected (see that this is now indented so it is "inside" the ``try``). If there is a ``ValueError`` the program jumps straight down to the ``except`` and does what it says there. So now:
+So we ``try`` to do what is expected (see that this is now indented so it is "inside" the ``try``). If there is a ``ValueError`` the program jumps straight down to the matching ``except`` and does what it says there. So now:
 
 .. code-block::
 
@@ -103,7 +103,7 @@ And after any changes it is always important to check that the program still wor
     Buses Needed:  1
     Students Left: 12
 
-Looks good! This approach is much easier than trying to examine a string to see if it could represent an integer, and has the extra benefit of leaving the original program untouched.
+Looks good! This approach is much easier than trying to examine a string to see if it could represent an integer, and has the extra benefit of leaving the original program logic untouched.
 
 Let's extend this to make the program a little more useful. Maybe we have the option for different sizes of bus.
 
