@@ -281,7 +281,12 @@ List Comprehensions
 Takeaways
 *********
 
-..
-    TODO
+More than any other chapter in this book, this one is probably not complete!
+
+There is really only one takeaway here, and that is that a programmer never stops learning. It is doubtful that there is anyone, anywhere, who knows *all* of Python, and can use it well. Modern programming languages are constantly developing and improving, and any developer needs to set time aside to keep up to date. Languages that are driven forward by a community of users, like Python, have a process where anyone can contribute, and the end results are achieved by consensus.
+
+Much the same applies to any language you may come to use in the future. Languages like Java and PHP have communities and continue to develop too. Even languages with stronger ties to particular companies, like C# as an example, develop, even if they are guided in a somewhat different way.
+
+So, take away that there is plenty more to learn. Look at code written by others, check the many tutorials available online, and, if you wanr to, keep up to date with new developments in Python.
 
 .. [#none] This is *still* not strictly true. ``None`` isn't really a type, it's an object, and there is only one of them. See the docs if you really need to know!
