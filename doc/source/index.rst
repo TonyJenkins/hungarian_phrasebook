@@ -27,5 +27,5 @@ Yet Another Python Book
     :caption: Endmatter:
 
     990_colophon/index.rst
-    995_acknowledgments/index.rst
+    995_acknowledgements/index.rst
     999_credits/index.rst
