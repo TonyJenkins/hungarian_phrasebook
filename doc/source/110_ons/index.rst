@@ -192,6 +192,21 @@ This is a neatness, but it does often improve the readability of code.
         >>> not l
         True
 
+This comes in useful when we want a user to enter some values, while giving them a way to indicate that they are finished. A while back we had a program where a user entered some marks, and we calculated the average. It looked like this:
+
+.. literalinclude:: /../../src/09/marks_while_mean.py
+   :language: python
+   :caption: ``marks.py``
+
+And we noted at the time that having them enter ``-1`` to show they were done was not the greated piece of user experience ever. A couple of small changes will allow the user to just press ``Enter`` to show they are done. We use the fact that this gives an empty string, and that ``not`` applied to an empty string gives ``True``. The only other change is that we need to move the ``int`` conversion so that we can test the possibly-emty string. The improved version is:
+
+.. literalinclude:: /../../src/11/marks_while_mean.py
+   :language: python
+   :emphasize-lines: 11, 12, 15
+   :caption: ``marks.py``
+
+Much better UX!
+
 Passing
 *******
 
