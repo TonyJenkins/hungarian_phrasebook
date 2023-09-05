@@ -678,8 +678,7 @@ Takeaways
 ..
     TODO
 
-.. [#sets] This
-almost said three, but we'll include Sets so as to be complete, and because they do have some nifty uses now and again.
+.. [#sets] This almost said three, but we'll include Sets so as to be complete, and because they do have some nifty uses now and again.
 .. [#listshomo] Note this says *usually*. Lists can contain elements of different types, but this often breaks the point of having a list, and the concept of "order" becomes difficult. A tuple is often a better call in this case.
 .. [#tuplecomma] As we will see, this style is more important with tuples. So a good argument for doing this with lists is that it's consistent with other collections.
 .. [#whilenot] Probably not a good example of UX. Next chapter we'll include a way to do this neatly.
