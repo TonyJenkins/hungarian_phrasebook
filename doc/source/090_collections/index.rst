@@ -555,10 +555,122 @@ Neat.
 Discovering Dictionaries
 ========================
 
-..
-    TODO
+The final collection that's worthy of a mention is a dictionary. A dictionary is a *key-value* pair, sometimes called a map. As usual, most modern programming languages provide something like a dictionary, and many provide multiple subtle variations.
 
+.. note::
 
+    There are many more collections, including specific types of dictionary, available in the standard library. We are just limiting ourselves to the built-in collection types here.
+
+Assuming you have used a paper dictionary, you already have the idea of what a Python dictionary will do. In a paper dictionary you take a word (that's the *key*) and find the definition (that's the *value*). It's important to realise straight away that this doesn't work the other way around - you don't take a definition and look through the dictionary until you find the right word\ [#reversedict]_.
+
+So when using a dictionary we have a *key* and some corresponding *values*. For example:
+
+* In a phone book, contact names would be the key (a string), and the phone number would be the value (also a string\ [#phone]_).
+* In a login system, user names would be the key (string), and the password would be the value (an encrypted string).
+* In an exam system, a student id would be the key (a string), and their results would be the value (a list of integers).
+
+Specifically, a Python dictionary:
+
+* Is a collection of key-value pairs.
+* Has unique keys.
+* Does not (reliably) maintain any concept of order. (The order will most likely be the order in which items are added, but it would be a brave programmer who decided to rely on this!)
+
+Given this, a dictionary is clearly going to be useful where the data in a problem neatly fits the key-value idea.
+
+.. note::
+
+    The question of "order" in a dictionary is a tricky one. The dictionaries we are discussing here do not have order, although you can write cunning code to sort them. But if you have a problem that really needs a dictionary with order, you can reach for one of the other available types and ``import`` them - ``OrderedDict`` for example.
+
+Let's see a dictionary in use. An empty one is created using curly parentheses:
+
+.. code-block::
+
+    >>> scores = {}
+
+.. important::
+
+    Curly brackets like this were also used with sets, above. To create an empty set, the code is:
+
+    .. code-block::
+
+        >>> empty_set = set()
+
+    Presumably they ran out of brackets.
+
+Then it is simply a case of adding values. We specify the key, and the corresponding value:
+
+.. code-block::
+
+    >>> scores = {}
+    >>> type(scores)
+    <class 'dict'>
+    >>> scores['robin'] = 23
+    >>> scores['bors'] = 76
+    >>> scores['galahad'] = 40
+    >>> scores
+    {'robin': 23, 'bors': 76, 'galahad': 40}
+
+And to extract values, just use the key:
+
+.. code-block::
+
+    >>> scores['robin']
+    23
+
+The same works to change a value. Obviously changing a key doesn't really make sense, and has to be done by deleting and inserting a new entry.
+
+.. code-block::
+
+    >>> scores['robin'] = 45
+    >>> scores['robin']
+    45
+    >>> del (scores['bors'])
+    >>> scores['sir bors'] = 76
+    >>> scores
+    {'robin': 45, 'galahad': 40, 'sir bors': 76}
+
+Two methods are commonly used to work with dictionaries. They are ``keys`` and ``values``, which provide lists of what they say:
+
+.. code-block::
+
+    >>> scores.keys()
+    dict_keys(['robin', 'galahad', 'sir bors'])
+    >>> scores.values()
+    dict_values([45, 40, 76])
+
+And also, ``items`` gives a list of tuples representing the dictionary:
+
+.. code-block::
+
+    >>> scores.items()
+    dict_items([('robin', 45), ('galahad', 40), ('sir bors', 76)])
+
+To finish with an example of using a dictionary, let's consider the problem of finding the key value in the above dictionary that has the highest value. Here's a shorthand for creating a dictionary:
+
+.. code-block::
+
+    >>> scores = dict(robin = 45, galahad = 40, bors = 76, bedevere = 90)
+    >>> scores
+    {'robin': 45, 'galahad': 40, 'bors': 76, 'bedevere': 90}
+
+How to find the key with the highest value? We need to use the handy methods that let us get at the insides of the dictionary. We can find the highest value easily:
+
+.. code-block::
+
+    >>> high_score = max(scores.values())
+    >>> high_score
+    90
+
+We have no way to find a key from just the value, and anyway the value might correspond to more than one key. So the trick is to use ``items`` and loop across the dictionary elements. This looks a bit strange, but once you've seen it once ...
+
+.. code-block::
+
+    >>> for name, score in scores.items():
+    ...     if score == high_score:
+    ...         print (name)
+    bedevere
+
+The tricky thing about using a dictionary can simply be realising that it is the right tool for your problem!
 
 Takeaways
 =========
@@ -576,3 +688,5 @@ almost said three, but we'll include Sets so as to be complete, and because they
 .. [#pointers] Think of it this way because this is exactly how it works.
 .. [#tuplereturn] So, in effect, the function is returning *one* value, which happens to be a tuple.
 .. [#trailcomma] This is one reason why adding the trailing comma in lists is good form. Keeps it less confusing.
+.. [#reversedict] You can obviously code this in Python, but is is the stuff of nightmares to do.
+.. [#phone] A string? Yes. Phone numbers usually have spaces in them and are very rarely used in arithmetic!
