@@ -158,7 +158,7 @@ So for this program is we ``import`` the ``sys`` module, and then run the progra
 The list ``sys.argv`` will contain ``wc.py`` at index 0, and ``text_file.txt`` at index 1. With this knowledge, we can change the program:
 
 .. index:: single: Programs; wc.py
-.. literalinclude:: /../../src/11/wc_clas.py
+.. literalinclude:: /../../src/11/wc_cla.py
    :language: python
    :caption: ``wc.py``
 
