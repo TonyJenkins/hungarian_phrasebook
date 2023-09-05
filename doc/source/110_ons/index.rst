@@ -99,6 +99,80 @@ But here is that, with the conversion done in one line, courtesy of an f-string 
 
 Sorry.
 
+Command-Line Arguments
+**********************
+
+Early on in this book, we introduced the *command line*. While many applications use graphical interfaces these days, there are still plenty of times where we need to just type a command into a terminal. For one thing, this is probably how many of the programs that we write will be run. You can run the program from inside your IDE, but you can't assume that your use will have the same IDE, or even any Pyton tool at all. So we fall back on the good old command-line.
+
+.. tip::
+
+    You may well find on Windows that double-clicking a Python program will run it, a terminal window will appear, and then vanish before you can see the results. Google will lead you to ways to preserve the output, but firing up a terminal and running it there really is the best way.
+
+Running a program at the command line is a simple case of starting the Python interpreter with the name of the file containing the program (programs are just plain text files, remember). So on a Linux or Mac system:
+
+.. code-block::
+
+    $ python3 my_prog.py
+
+does the job.
+
+Windows is, as usual, a little more complicated, as typing ``python`` has a habit of opening the Windows Store. The simplest fix is to use:
+
+.. code-block::
+
+    C:\> py my_prog.py
+
+making sure you are running in the same folder as contains the program. Better fixes are a Google away.
+
+When running a program like this, it is often useful to have some input on the command line, along with the name of the program file. As an example, here is a simple program that counts the lines in a file (and uses an f-string!):
+
+.. index:: single: Programs; wc.py
+.. literalinclude:: /../../src/11/wc_input.py
+   :language: python
+   :caption: ``wc.py``
+
+This is fine, and it would work, but wouldn't it be neater if the user just typed the name of the file they want to use as input *after* the program name? So instead of:
+
+.. code-block::
+
+    $ python3 wc.py
+    Enter the file name: text_file.txt
+
+the user could just:
+
+.. code-block::
+
+    $ python3 wc.py text_file.txt
+
+This is obviously possible, and is a case where we have the program capture *command line arguments*. It works like this:
+
+#. Import the ``sys`` module.
+#. Then you have a list called ``sys.argv`` which contains everything from the command line. The first element is the name of the program, and then the remainder is anything that was typed after it.
+
+So for this program is we ``import`` the ``sys`` module, and then run the program as so:
+
+.. code-block::
+
+    $ python3 wc.py text_file.txt
+
+The list ``sys.argv`` will contain ``wc.py`` at index 0, and ``text_file.txt`` at index 1. With this knowledge, we can change the program:
+
+.. index:: single: Programs; wc.py
+.. literalinclude:: /../../src/11/wc_clas.py
+   :language: python
+   :caption: ``wc.py``
+
+and it will work as expected.
+
+Using the command line like this usually introduces the possibility of errors, often when the user misses off a required argument, or when the argument is invalid. So there is some common code that often gets added in. In this case, missing off the argument would give an ``IndexError`` when the program tries to access the argument. There could also be a ``FileNotFoundError`` if, ah, the file cannot be found. So a complete version of the program, with error-checking, would be:
+
+.. index:: single: Programs; wc.py
+.. literalinclude:: /../../src/11/wc.py
+   :language: python
+   :caption: ``wc.py``
+
+Remember that ``sys.argv[0]`` contains the name of the program, so here we are making sure that the user knows what is generating the error.
+
 None
 ****
 
