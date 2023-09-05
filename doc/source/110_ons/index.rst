@@ -8,6 +8,30 @@ Programming languages change and evolve, and Python is no exception. It's been a
 
 This section includes some features that have been added into Python over the years. Along with these are a few details that we passed over so as to keep things simple. The sections below are in no special order, and will probably be added to over time!
 
+Ternary
+*******
+
+There has been much made of the benefits of producing DRY code in this book. A useful feature in this quest is to use Python's *ternary* version of the ``if`` statement. As with many things in this chapter, there is no need to use this, and therefore no need to know about it, but using it can produce much neater, and "DRYer" code.
+
+A conditional (``if``) statement chooses between any number of possibilities. A ternary can be used when there are two. It is really just a shorthand, but it can look a little odd at first. It can be read as something like "do this if something is true, otherwise do that". An example:
+
+.. code-block::
+
+    mark = 50
+    result = 'Pass' if mark >= 40 else 'Fail'
+
+That should be obvious from just reading it, which is one of the benefits of using this. Compare with the functionally identical:
+
+.. code-block::
+
+    mark = 40
+    if mark >= 40:
+        result = 'Pass'
+    else:
+        result = 'Fail'
+
+That really is all there is to it. A common use case is in a f-string - see below!
+
 F-Strings
 *********
 
@@ -38,7 +62,7 @@ Here is an example of the brackets containing code. Suppose we have a test mark,
     else:
         print('Your mark was', mark, '. You have failed', sep='')
 
-This is OK, but is fiddly to get the spacing right. Compare with the f-string version:
+This is OK, but is fiddly to get the spacing right. Compare with the f-string version, that makes use of a ternary:
 
 .. code-block::
 
