@@ -675,8 +675,17 @@ The tricky thing about using a dictionary can simply be realising that it is the
 Takeaways
 =========
 
-..
-    TODO
+This chapter has introduced four of the most common collection data types. Using these is fundamental towriting DRY programs that will work in a range of situations. When picking a collection type it is worth remembering:
+
+* You can do basically anything with lists. Even key-value pairs can be implemented with lists.
+* Some collections maintain order, and can be sorted, some do not.
+* Some allow duplicate values, some do not.
+* Some are well suited for heterogeneous data, others work better with homogeneous data.
+* Some operations, like iterating over a sequence, or testing membership with ``in`` are available for more than one collection. As usual, it is the ones where the operation makes sense!
+
+Many programs involve structures built up of several collections - lists of lists, or dictionaries where the value is a tuple. The trick to arriving at an efficient solution can often be to design the right *data structures*. Applications handling huge amounts of data often require consideration of the best structures to allow for efficient searching too, but that is not likely to be your problem for a while!
+
+As usual, this chapter introduced the basic ideas. Full details are in the docs, and in many online tutorials.
 
 .. [#sets] This almost said three, but we'll include Sets so as to be complete, and because they do have some nifty uses now and again.
 .. [#listshomo] Note this says *usually*. Lists can contain elements of different types, but this often breaks the point of having a list, and the concept of "order" becomes difficult. A tuple is often a better call in this case.
