@@ -405,6 +405,86 @@ But keep in mind that you can do anything these types can do with a list (except
 Trying Tuples
 =============
 
+At first sight, tuples seem very similar to lists, and you may wonder what they are for. So let's start with the two most important differences:
+
+* Tuples are *immutable*, which means that once created, a tuple does not change.
+* Tuples are usually *heterogeneous*, that is a tuple contains data of a range of different data types.
+
+This contrasts with a list which, as we have seen, is *mutable* and usually *homogeneous*.
+.. hint::
+
+    If you have studied databases, you can think of a tuple as a row in a database table. And the database table could be represented by a list of tuples.
+
+We have, in fact, used tuples before, without knowing it. If you have a function that returns more than one value, it is in fact returning a tuple\ [#tuplereturn]_. That code looked something like this:
+
+.. code-block::
+
+    def find_string_and_number():
+
+        a_string = ...
+        a_number = ...
+
+        return a_string, a_number
+
+So we returned two values, separated with a comma. That is actually a *tuple*.
+
+A tuple is represented just like that, a number of values separated by commas. So this creates a tuple:
+
+.. code-block::
+
+    >>> details = 'Robin', 12, False
+    >>> type(details)
+    <class 'tuple'>
+    >>> details
+    ('Robin', 12, False)
+
+Notice that when the interpreter displays the value of a tuple it adds parentheses. So it is usual to add these in anyway when a tuple is created (and this also allows tuples to contain tuples). As you probably expect, the elements inside the tuple can be accessed by an index number (just like lists) and slices work too:
+
+.. code-block::
+
+    >>> details[2]
+    False
+    >>> details[-1]
+    False
+    >>> details[:-1]
+    ('Robin', 12)
+
+But, as they are immutable, it is not possible to assign values to the elements once a tuple is created:
+
+.. code-block::
+
+    >>> details[2] = True
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: 'tuple' object does not support item assignment
+
+Some final details. To create an empty tuple use empty round parentheses:
+
+.. code-block::
+
+    >>> empty_tuple = ()
+
+To create a tuple with a single element, you *must* add a trailing comma, like this\ [#trailcomma]_. But the brackets are optional:
+
+.. code-block::
+
+    >>> new_tuple = 'Robin',
+
+And the same will add an element to the end of a tuple:
+
+.. code-block::
+
+    >>> details += ('Brave',)
+    >>> details
+    ('Robin', 12, False, 'Brave')
+
+But if you find yourself adding to the end of a tuple that could well be the problem's way of telling you that you should be using a list!
+
+So, really tuples are best thought of as a handy way to handle several related data items as a single unit. Remember the two key ideas - tuples are *immutable* and usually *heterogeneous*.
+
+Seeking Sets
+============
+
 ..
     TODO
 
@@ -414,11 +494,7 @@ Discovering Dictionaries
 ..
     TODO
 
-Seeking Sets
-============
 
-..
-    TODO
 
 Takeaways
 =========
@@ -434,3 +510,5 @@ almost said three, but we'll include Sets so as to be complete, and because they
 .. [#listinsert] So rare that this example might have been left out.
 .. [#range] This is in fact pretty much what ``range`` did in older versions of Python. Now, for efficiency it does something slightly different but we can still think of it as generating a list.
 .. [#pointers] Think of it this way because this is exactly how it works.
+.. [#tuplereturn] So, in effect, the function is returning *one* value, which happens to be a tuple.
+.. [#trailcomma] This is one reason why adding the trailing comma in lists is good form. Keeps it less confusing.
