@@ -485,8 +485,72 @@ So, really tuples are best thought of as a handy way to handle several related d
 Seeking Sets
 ============
 
-..
-    TODO
+Sets are probably the most obscure collection type, but they are worth mentioning because of one special property. The features of a set are:
+
+* It is unordered.
+* It can be heterogeneous.
+* It does *not permit duplicate elements*.
+* It supports all the usual operations associated with a mathematical set, such as intersection and difference.
+
+The most commonly useful properly is the uniqueness. A set is created using curly parentheses:
+
+.. code-block::
+
+    >>> knights = {'Robin', 'Galahad', 'Bedevere',}
+    >>> type(knights)
+    <class 'set'>
+
+The trailing comma is optional, as with tuples and lists.
+
+Membership testing is possible:
+
+.. code-block::
+
+    >>> 'Robin' in knights
+    True
+    >>> 'Arthur' in knights
+    False
+
+Items can be added to a set using the ``add`` method, but this has no effect if the item is already there.
+
+.. code-block::
+
+    >>> knights.add('Robin')
+    >>> knights
+    {'Galahad', 'Robin', 'Bedevere'}
+    >>> knights.add('Bors')
+    >>> knights
+    {'Galahad', 'Bors', 'Robin', 'Bedevere'}
+
+.. note::
+
+    The code above also illustrates that order is not defined for a set.
+
+The set operations can be useful if, say, we have two collections and want to know what items are in the one, but not the other, or are in both:
+
+.. code-block::
+
+    >>> knights = {'Robin', 'Galahad', 'Bedevere',}
+    >>> brave_knights = {'Galahad', 'Bors', 'Bedevere',}
+    >>> knights - brave_knights
+    {'Robin'}
+    >>> knights & brave_knights
+    {'Galahad', 'Bors', 'Bedevere'}
+
+The two operations here are set difference (``-``) and intersection (``&``).
+
+So this can be very useful if this sort of thing is common in your application.
+
+Finally, a common example where sets can be very handy is where you have a list but you want to filter out duplicate items. The simple way to do this is to convert the list to a set, and then back again! Look:
+
+.. code-block::
+
+    >>> knights = ['Galahad', 'Bors', 'Robin', 'Robin', 'Bors', 'Lancelot', 'Bors',]
+    >>> knights = list(set(knights))
+    >>> knights
+    ['Galahad', 'Bors', 'Robin', 'Lancelot']
+
+Neat.
 
 Discovering Dictionaries
 ========================
