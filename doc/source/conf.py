@@ -3,7 +3,7 @@
 project = 'Yet Another Python Book'
 copyright = '2023, Tony Jenkins'
 author = 'Tony Jenkins'
-release = '1.0beta'
+release = '0.5beta'
 
 web = 'http://www.tony-jenkins.org.uk/'
 
