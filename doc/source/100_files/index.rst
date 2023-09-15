@@ -96,9 +96,9 @@ Reading (denoted by ``r``) is the default, so this can be left out, but it is go
 
 ``f.read()``
     Will read the whole file into a string.
-``d.readline()``
+``f.readline()``
     Will read the next line of the file into a string.
-``d.readlines()``
+``f.readlines()``
     Will read the whole file into a list of strings.
 
 Once the file contents are in these variables, they can be processed using all the Python we have seen before.
@@ -140,7 +140,7 @@ If you look at the data that is read from a file, you will see that every string
 
 .. note::
 
-    As well as ``\n`` you may also see ``\t``, which represents a TAB character. There are others (they are called *escape sequences*, but these two are the most common.
+    As well as ``\n`` you may also see ``\t``, which represents a TAB character. There are others (they are called *escape sequences*, but these two are the most common).
 
 So, suppose we want to count the number of characters in a file, as well as the lines. In that case we probably wouldn't count the end of line characters. Such a program is actually a very common "recipe", where we do something with every line of file. Example coming up!
 
@@ -193,7 +193,7 @@ Trying to write to a file that already exists is tricky, because sometimes this 
 
     If this is an issue, the ``os`` module contains handy functions to determine if a file exists.
 
-    Or, you could just use the code for opening a file to write  quick function to check:
+    Or, you could just use the code for opening a file to write a quick function to check. Here's a quick hack:
 
     .. code-block::
 
@@ -277,6 +277,6 @@ And while we were here, we showed a slightly different way to work with exceptio
 
 Files are often used as *command line arguments*. How to do that is in the next chapter, along with a few other things that will make our lives easier.
 
-.. [#lines] Alternatively, and quite cunningly, we could just take the complete length and then at the end, subtract the total number of lines.
+.. [#lines] Alternatively, and quite cunningly, we could just take the complete length including the new line characters, and then at the end, subtract the total number of lines.
 .. [#buffers] Output to a file on disk is slow, so typically the system will hold ("buffer") data in some handy memory and then write it to disk when there are system resources available. Closing a file forces anything in a buffer to be written.
 .. [#race] This is called a *race condition*. Basically, our program determines that it can write to a file. But before it comes to do this, some other program on the system does something to the same file, so it can no longer be written. Try running the shopping list program in two windows at the same time. What should happen? What does?
