@@ -164,15 +164,119 @@ Now we can read files, we can try writing!
 Writing Files
 =============
 
-.. note::
+It should be no surprise that writing to a file involves much the same code as reading from a file. First, the file must be opened, then data can be written, and finally it should be closed. Closing a file after it has been written is probably more important that after reading because this should *flush* any data that the operating system might be holding in buffers\ [#buffers]_.
 
-    TODO
+Opening the file for writing is the same code as for reading, except the mode is different. Two write to a file:
+
+.. code-block::
+
+    >>> f = open('spam.txt', 'w')
+
+or to append to a file (that is, add data to the end):
+
+.. code-block::
+
+    >>> f = open('spam.txt', 'a')
+
+But let's consider what could go wrong here.
+
+Writing Exceptions
+------------------
+
+In the case of writing a ``FileNotFoundError`` will only happen if the file name includes a folder, and that folder does not exist.
+
+There is also the possibility of a ``PermissionError`` if the location *does exist* but the user running the program does not have permission to write a file there.
+
+Trying to write to a file that already exists is tricky, because sometimes this would be an error, but usually it isn't. Writing to a log file, for example, involves adding data to an existing file. So Python will be quite happy to open a file for writing, if that file exists.
+
+.. tip::
+
+    If this is an issue, the ``os`` module contains handy functions to determine if a file exists.
+
+    Or, you could just use the code for opening a file to write  quick function to check:
+
+    .. code-block::
+
+        def file_exists(filename):
+            try:
+                f = open(filename, 'r')
+                f.close()
+                return True
+            except FileNotFoundError:
+                return False
+
+    Although, of course, opening a file to read it does not mean you can write to it. It just means that it exists.
+
+So, when opening a file for writing, we should catch the exceptions that can happen (but these will probably only happen if the filename also includes folder names).
+
+Writing Data
+------------
+
+There is only one function to write to a file, and it is imaginatively named ``write``. You can almost think of it as the same as ``print``, except that output is sent to a file.
+
+There really isn't much to it, but an example will help.
+
+.. topic:: Shopping List
+
+    Write a program that prompts the user to enter items they plan to buy, and stores this in a file called ``shopping.txt``.
+
+We will extend this program a little in a moment, but first we will assume that it runs just once, so the file does not initially exist. So all we need to do is prompt the user to enter items, and give them some way to indicate that are done.
+
+.. literalinclude:: /../../src/10/shopping.py
+   :language: python
+   :caption: ``shopping.py``
+
+The ``write`` method does not add a newline character so see that we have to do that ourselves. This is sort of the opposite to wanting to ignore the newline when reading a file.
+
+If the file does not exist, it will be created. If it does exist, as things stand, any new data will overwrite what was already there. This might be what is wanted, or might not.
+
+The third mode for writing to files, *append*, takes care of the situation where we want to keep the existing contents. This is useful for a log file or, here, a shopping list:
+
+.. literalinclude:: /../../src/10/shopping_1.py
+   :language: python
+   :emphasize-lines: 5
+   :caption: ``shopping.py``
+
+A tiny change! Now, any new items will be added to the end of the file. If you try to append to a file that does not exist, the file will be created, just as with the ``w`` mode.
+
+Finally, let's finish the program by trapping the exceptions. The two likely ones were ``PermissionError`` and ``FileNotFoundError``. Since the error in either case would be the same, this is a good chance to show how to catch two exceptions at once! Here is the code:
+
+.. literalinclude:: /../../src/10/shopping_2.py
+   :language: python
+   :emphasize-lines: 5,18-19
+   :caption: ``shopping.py``
+
+That comma at the end gives it away - it's a tuple of the exceptions that could be generated.
+
+Since there is space, we'll do one last refactor here. This is nothing to do with files as such, but it does crop up a lot when using them. The problem is that (except in very unlikely conditions\ [#race]_) the only place an exception will happen here would be when opening the file. And as we have it the code the handle that has got a long way from the place the error will happen.
+
+So, let's trap the exception in a slightly different way. This is really just for neatness.
+
+.. literalinclude:: /../../src/10/shopping_3.py
+   :language: python
+   :emphasize-lines: 11
+   :caption: ``shopping.py``
+
+The new idea here is that ``else``. It can be thought of as meaning "carry on here if there is no exception". If there is an exception, the ``else`` is never executed.
+
+Have a look at both examples, and see which you think gives the code that is easir to follow. That's the one to use!
 
 Takeaways
 =========
 
-.. note::
+Most programs use files. Once a file has been opened, there are methods for reading and writing data, and which work depends on the mode in which the file was opened.
 
-    TODO
+Things to remember:
+
+* Opening a file involves specifying the name, and the mode.
+* Exceptions will show whether a file opened for read exists, or whether a file opened for write can be written to.
+* Reading a file does not affect it. Writing a file can create it, or overwrite it.
+* If the contents of a file are to be added to, the mode to use is *append*.
+
+And while we were here, we showed a slightly different way to work with exceptions.
+
+Files are often used as *command line arguments*. How to do that is in the next chapter, along with a few other things that will make our lives easier.
 
 .. [#lines] Alternatively, and quite cunningly, we could just take the complete length and then at the end, subtract the total number of lines.
+.. [#buffers] Output to a file on disk is slow, so typically the system will hold ("buffer") data in some handy memory and then write it to disk when there are system resources available. Closing a file forces anything in a buffer to be written.
+.. [#race] This is called a *race condition*. Basically, our program determines that it can write to a file. But before it comes to do this, some other program on the system does something to the same file, so it can no longer be written. Try running the shopping list program in two windows at the same time. What should happen? What does?
