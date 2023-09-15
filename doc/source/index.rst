@@ -19,6 +19,7 @@ Yet Another Python Book
     090_collections/index.rst
     100_files/index.rst
     110_ons/index.rst
+    120_the_end/index.rst
 
 .. raw:: latex
 
