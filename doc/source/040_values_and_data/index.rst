@@ -156,7 +156,7 @@ Integers are numbers, and the most common uses fo them obviously involve all the
 
 .. important::
 
-    Take a close look at the last operation above. ``4.0`` is a floating-point value. So if we divide an integer by another integer, the result is a floating-point number, even if the decimal part is zero. Why so? Because *in general* the result of diving two integers will have a floating-point part, so it makes sense to always return a ``float`` as the result.
+    Take a close look at the last operation above. ``4.0`` is a floating-point value. So if we divide an integer by another integer, the result is a floating-point number, even if the decimal part is zero. Why so? Because *in general* the result of dividing two integers will have a floating-point part, so it makes sense to always return a ``float`` as the result.
 
 This all looks straightforwarde, but there is one detail to cover. There are three different kinds of division. Above is what we might call "normal" division, where the result is a floating-point number. This is usually what is needed, so it is what happens by default. However, sometimes *integer division* is needed. So, it is possible to require that the result is an integer, effectively ignoring any decimal part:
 
