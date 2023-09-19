@@ -103,6 +103,12 @@ This alignment is important, because there can be a conditional statement inside
 
 Spaces are usually used for indentation. TAB characters can be used\ [#tabs]_, but most IDEs will silently turn them into spaces. Any number of spaces can be used, but the PEP-8 standard calls for 4, and this is what most IDEs will do.
 
+.. important::
+
+    The indentation is not just for show. It is part of the Python language, and is used to show which statements are affected by which control statements. If you get the indentation wrong, the program will not work.
+
+
+
 More Choices
 ************
 
