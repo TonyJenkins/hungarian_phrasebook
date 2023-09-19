@@ -132,7 +132,7 @@ Three things to notice about the code here:
 And also:
 
 * The string used for the input prompt includes a single quote (an apostrophe), so the string itself is in double quotes.
-* There are be any number of ``elif`` lines, but the order matters in that the first ``True`` is executed (all the others are passed over).
+* There are be any number of ``elif`` lines, but the order matters in that the code under the first ``True`` is executed (all the others are passed over).
 * There does not have to be a catch-all ``else``\ [#else]_.
 
 Nesting
