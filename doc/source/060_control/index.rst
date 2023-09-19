@@ -2,12 +2,20 @@
 Staying in Control
 ==================
 
-Previously we have looked at *exceptions* and how they can be used to catch some error situations. These have been errors that mean that Python cannot carry on because the values it is trying to process don't make sense. But what about the case where the values do make sense (in that they are the correct type), but are invalid for some other reason.
+Previously we have looked at *exceptions* and how they can be used to catch some error situations.
+
+These have been errors that mean that Python cannot carry on because it makes no sense to process the values it is given. But what about the case where the values do make sense (in that they are the correct type), but are invalid for some other reason.
+
+.. important::
+
+    Remember that the Python interpreter has no concept of what the data it is processing represents. It just sees a bunch of numbers, strings, and so on. It is the programmer that understands what these mean, and knows how to determine if they are invalid. A programmer might call a variable ``age``, but the interpreter just sees a number. It has no idea that a negative value (or a value over 130 for that matter) is invalid.
+
+Let's see how to deal with these errors. We might say that we are dealing with values that are *legal*, but invalid. We'll start with a simple example, and then look at some more complex ones.
 
 Values in Range
 ===============
 
-Remember the example of allocating students to buses. There was an error when the capacity of a bus was entered as ``0`` (it provoked a ``ZeroDivisionError``), but what about if ``-10`` had been entered? This is clearly nonsense but the Python interpreter (which has no knowledge of buses) would happily carry on.
+Remember the example of allocating students to buses. There was an error when the capacity of a bus was entered as ``0`` (it provoked a ``ZeroDivisionError``), but what about if ``-10`` had been entered? This is also clearly nonsense but the Python interpreter (which has no knowledge of buses) would happily carry on, producing potentially confusing results.
 
 .. code-block::
 
@@ -26,7 +34,7 @@ To stop this we need to apply a small amount of logic to stop the calculation if
 
 The program is now providing a *condition*, and showing that some statements should be executed only if the condition turns out to be ``True``. The statements affected by this are *indented across*. So now if an incorrect value was entered the program would produce no output at all.
 
-This is fine, but as it stands the user might be a little baffled about what's going on. It would be better to provide them with some sort of useful error message. Or we could point them in the direction of how to use the program properly. To do this, we need to say what should happen if the condition is ``False``. It looks like this:
+This is fine, but as it stands the user, looking at a program generating no output at all, might be a little baffled about what's going on. It would be better to provide them with some sort of useful error message. Or we could point them in the direction of how to use the program properly. To do this, we need to say what should happen if the condition is ``False``. It looks like this:
 
 .. literalinclude:: /../../src/06/school_bus_else.py
    :language: python
@@ -38,6 +46,8 @@ The ``else`` states what happens when the condition at the ``if`` is ``False``. 
 .. important::
 
     This works because a Boolean condition is always one of ``True`` or ``False``. The condition in a statement like this can be anything that evaluates to a Boolean value.
+
+The Boolean condition, being ``True`` or ``False`` (and having no other possible values) means that one of the ``if`` or ``else`` will always be executed, but never, of course, both.
 
 That's enough for simple cases. Before looking at more elaborate ones, let's consider what's going on here.
 
