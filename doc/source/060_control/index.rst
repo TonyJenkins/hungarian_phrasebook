@@ -107,8 +107,6 @@ Spaces are usually used for indentation. TAB characters can be used\ [#tabs]_, b
 
     The indentation is not just for show. It is part of the Python language, and is used to show which statements are affected by which control statements. If you get the indentation wrong, the program will not work.
 
-
-
 More Choices
 ************
 
@@ -128,12 +126,12 @@ So here we need to test whether the grade and test it twice. This could be done 
 Three things to notice about the code here:
 
 * ``elif`` allows for other choices to be tested. The complete statement will execute the first condition that turns out to be true.
-* ``else`` serves as a "catch all" if not of the tested conditions are true.
-* The final condition can be a catch-all because if the mark is not a Distiction or a Pass it *must* be a Fail, so there is no need for an explicit check.
+* ``else`` serves as a "catch all" if none of the tested conditions are true.
+* The final condition can be a catch-all because if the mark is not a Distinction or a Pass it *must* be a Fail, so there is no need for an explicit check.
 
 And also:
 
-* The string used for the inout prompt includes a single quote (an apostrophe), so the string itself is in double quotes.
+* The string used for the input prompt includes a single quote (an apostrophe), so the string itself is in double quotes.
 * There are be any number of ``elif`` lines, but the order matters in that the first ``True`` is executed (all the others are passed over).
 * There does not have to be a catch-all ``else``\ [#else]_.
 
