@@ -44,7 +44,7 @@ That's enough for simple cases. Before looking at more elaborate ones, let's con
 Flow of Control
 ===============
 
-The example above introduced a *conditional statement*. This is a statement that allows us to control the *flow of executioN* in a program. Unless we specify otherwise, a program will flow from the top to the bottom, with the interpreter executing each statement in order. This is rarely what is needed, because we want to handle errors, deal with different user input, and so on.
+The example above introduced a *conditional statement*. This is a statement that allows us to control the *flow of execution* in a program. Unless we specify otherwise, a program will flow from the top to the bottom, with the interpreter executing each statement in order. This is rarely what is needed, because we want to handle errors, deal with different user input, and so on.
 
 .. tip::
 
