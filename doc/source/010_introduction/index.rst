@@ -40,7 +40,9 @@ This chapter sets the scene for the book, and hopefully convinces you that you a
 Design Decisions
 ================
 
-There are usually many ways to write a computer program. Some are just as good as others, but sometimes an experienced programmer will have some sort of instinct that one is best. Or it could just come down to experience. Likewise, there are many to write a book about computer programming. Let's start by going over the design decisions behind this book.
+There are usually many ways to write a computer program. Some are just as good as others, but sometimes an experienced programmer will have some sort of instinct that one is best. Or it could just come down to experience. Whatever, *design decisions are made*.
+
+Likewise, there are many ways to write a book about computer programming. Let's start by going over the design decisions behind this book.
 
 This book is the result of many years watching (and sometimes even helping) people learn to program. The key design ideas, in roughly their order of importance, are:
 
