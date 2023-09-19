@@ -60,7 +60,7 @@ The example above introduced a *conditional statement*. This is a statement that
 
     A *Conditional Statement* in a programming language is often referred to as the **If Statement**, just because of the word that introduces it in most languages. Either term is fine.
 
-A conditional statement allows a programmer to mark that some statements should be executed only if some condition is true. Optionally, there may also be statements that are an alternative, to be executed only of the same condition is falase. Since any Boolean statement is either true or false, one or the other sets of statements will always be executed.
+A conditional statement allows a programmer to mark that some statements should be executed only if some condition is true. Optionally, there may also be statements that are an alternative, to be executed only if the same condition is false. Since any Boolean statement is either true or false, one or the other sets of statements will always be executed.
 
 .. important::
 
@@ -68,7 +68,7 @@ A conditional statement allows a programmer to mark that some statements should 
 
 .. tip::
 
-    If you think about it, it is always possible to write a conditional statement in two ways, with true and false either way round. It rarely matters, but the best plan is always to pick the one that gives the most natural-looing code.
+    If you think about it, it is always possible to write a conditional statement in two ways, with true and false either way round. It rarely matters, but the best plan is always to pick the one that gives the most natural-looking code.
 
 Python indicates which statements are affected by a control statement using indentation. The statements affected are all indented by a certain number of spaces, directly under the control ststement. When statements are "un-indented" they are no longer affected. Indentation also shows which ``else`` matches which ``if`` - the ``else`` is indented so that it is directly below the corresponding ``if``.
 
