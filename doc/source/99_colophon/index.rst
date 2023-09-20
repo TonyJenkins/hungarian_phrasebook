@@ -1,14 +1,14 @@
-========
+git========
 Colophon
 ========
 
 This book was produced using the `Sphinx Documentation Generator <https://www.sphinx-doc.org/>`_. This in turn uses a bunch of other Python packages that have all been made available by their developers. The theme is Sphinx `{book theme} <https://sphinx-book-theme.readthedocs.io/>`_.
 
-The main font in the PDf version is ``Bitter``. Some text is in ``Lato``. The code samples are in ``Cascadia Code``.
+The main font in the PDF version is ``Bitter``. Some text is in ``Lato``. The code samples are in ``Cascadia Code``.
 
 The whole thing was cobbled together with PyCharm, with Git and GitHub keeping track of things.
 
-The cover image shows a Reticulated Python and is taken from the 1911 Edition of *Encyclopedia Britannica*, which observes as follows.
+The cover image shows a Reticulated Python and is taken from the 1911 Edition of the *Encyclopedia Britannica*, which observes as follows. Who knew?
 
     **PYTHON**, a genus of very large snakes of the family Boidae (see Snakes) inhabiting the tropical parts of Africa, Asia and Australia. They differ from the true boas (q.v.) with which they are often confounded by carrying a few teeth in the premaxilla, by the double row of subcaudal shields and by the possession of a pair of supraorbital bones. Most of them have pits in some of the upper and lower labial shields.
 
