@@ -12,6 +12,7 @@ rst_epilog = '.. |web| replace:: %s' % web
 extensions = [
     'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
+    'sphinx_favicon',
 ]
 
 templates_path = ['_templates']
@@ -39,19 +40,22 @@ html_theme_options = {
 }
 
 html_last_updated_fmt = "%A %d %B, %Y"
-# html_logo = "_images/python_britannica.png"
 html_title = 'Yet Another Python Book'
 
 html_use_index = True
 html_split_index = True
+
+favicons = [
+    {'href': 'favicon.ico'},
+]
 
 copybutton_exclude = '.linenos, .gp'
 
 smartquotes = True
 
 latex_elements = {
-    'papersize' : 'a4paper',
-    'pointsize' : '11pt',
+    'papersize': 'a4paper',
+    'pointsize': '11pt',
     'preamble': r'''
         \usepackage{bitter}
         \usepackage[defaultsans]{lato}
