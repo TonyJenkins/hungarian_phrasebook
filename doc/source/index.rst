@@ -28,6 +28,7 @@ Yet Another Python Book
 .. toctree::
     :caption: Endmatter:
 
+    890_glossary/index.rst
     990_colophon/index.rst
     995_acknowledgements/index.rst
     999_credits/index.rst
