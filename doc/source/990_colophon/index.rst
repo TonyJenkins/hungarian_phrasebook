@@ -6,7 +6,7 @@ This book was produced using the `Sphinx Documentation Generator <https://www.sp
 
 The main font in the PDF version is ``Bitter``. Some text is in ``Lato``. The code samples are in ``Cascadia Code``.
 
-The whole thing was cobbled together with PyCharm, with Git and GitHub keeping track of things. `GitHub Copilot` <https://github.com/features/copilot>`_ has chipped in now and again.
+The whole thing was cobbled together with PyCharm, with Git and GitHub keeping track of things. `GitHub Copilot <https://github.com/features/copilot>`_ has chipped in now and again.
 
 The cover image shows a Reticulated Python and is taken from the 1911 Edition of the *Encyclopedia Britannica*, which observes as follows. Who knew?
 
