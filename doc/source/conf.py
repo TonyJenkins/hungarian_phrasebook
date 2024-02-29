@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 project = 'Yet Another Python Book'
-copyright = '2023, Tony Jenkins'
+copyright = '2024, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.5beta'
 
