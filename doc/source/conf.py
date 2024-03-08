@@ -25,6 +25,7 @@ html_static_path = ['_static']
 html_theme = 'sphinx_book_theme'
 html_theme_options = {
     'home_page_in_toc': True,
+    'navigation_with_keys': False,
     'repository_url': 'https://github.com/TonyJenkins/hungarian_phrasebook',
     'use_repository_button': True,
     'pygment_light_style': 'xcode',
