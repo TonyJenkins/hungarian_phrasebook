@@ -24,7 +24,7 @@ That should be obvious from just reading it, which is one of the benefits of usi
 
 .. code-block::
 
-    mark = 40
+    mark = 50
     if mark >= 40:
         result = 'Pass'
     else:
