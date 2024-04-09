@@ -91,6 +91,14 @@ Glossary
 
         A book by Andrew Hunt and Dave Thomas that was published in 1999. It is a guide to computer programming and software development that includes tips and tricks for programmers. Every programmer should read it.
 
+    Pythonic
+
+        A term used to describe code that follows the conventions of the Python language. Pythonic code is clean, readable, and concise. It is idiomatic Python code that takes advantage of the language's features and libraries.
+
+    PyCharm
+
+            A Python IDE developed by JetBrains. It is one of the most popular Python IDEs and is used by many professional Python developers. PyCharm has many features that make it easy to write, test, and debug Python code.
+
     PyPi
 
             The Python Package Index. It is a repository of software packages for the Python programming language. There are thousands of packages available on PyPi that can be installed using the ``pip`` package manager.
@@ -114,6 +122,10 @@ Glossary
     Spam
 
         A canned meat product made mainly from ham. It is also a running joke in the Monty Python sketch "Spam". In the sketch, a group of Vikings sing a chorus of "Spam, Spam, Spam, Spam, lovely Spam! Wonderful Spam!" to drown out other conversation. The term "spam" has since been used to refer to unwanted email.
+
+    VS Code
+
+        Visual Studio Code. A free source-code editor made by Microsoft for Windows, Linux, and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring.
 
     WET
 
