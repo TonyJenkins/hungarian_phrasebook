@@ -107,6 +107,10 @@ Glossary
 
         Stands for Read-Eval-Print Loop. A REPL is a simple interactive computer programming environment that takes single user inputs (single expressions), evaluates them, and displays the result to the user. The Python interpreter is a REPL.
 
+    Semantic Error
+
+        An error in a program that makes it do something other than what the programmer intended. Semantic errors are difficult to find because they do not cause the program to crash or produce an error message. Instead, they cause the program to produce incorrect results.
+
     Shrubbery
 
         A small to medium-sized woody plant. In Monty Python and the Holy Grail, the Knights Who Say Ni demand a shrubbery from King Arthur as a condition for passing through the forest. The knights are very particular about the type of shrubbery they want and are not satisfied with the first shrubbery King Arthur brings them.
@@ -122,6 +126,10 @@ Glossary
     Spam
 
         A canned meat product made mainly from ham. It is also a running joke in the Monty Python sketch "Spam". In the sketch, a group of Vikings sing a chorus of "Spam, Spam, Spam, Spam, lovely Spam! Wonderful Spam!" to drown out other conversation. The term "spam" has since been used to refer to unwanted email.
+
+    Syntax Error
+
+            An error in a program that occurs when the code does not follow the rules of the programming language. Syntax errors are usually easy to find because they cause the program to crash and produce an error message. Common syntax errors include missing parentheses, missing colons, and misspelled keywords.
 
     VS Code
 
