@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 project = 'Yet Another Python Book'
-copyright = '2024, Tony Jenkins'
+copyright = '2025, Tony Jenkins'
 author = 'Tony Jenkins'
 release = '0.5beta'
 
@@ -27,6 +27,7 @@ html_theme_options = {
     'home_page_in_toc': True,
     'navigation_with_keys': False,
     'repository_url': 'https://github.com/TonyJenkins/hungarian_phrasebook',
+    "extra_footer": "<address>greetings@tony-jenkins.org.uk</address>",
     'use_repository_button': True,
     'pygment_light_style': 'xcode',
     'pygment_dark_style': 'nord',
